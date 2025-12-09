@@ -1,0 +1,35 @@
+[
+  {
+    "id": "dante-seigneur-du-feu",
+    "name": "Dante, Seigneur du Feu",
+    "faction": "Blood Angels",
+    "type": "Seigneur",
+    "cost": 3,
+    "power": 6,
+    "keywords": ["Charge", "Feu", "Légendaire"],
+    "effect": "Charge. +2 ATK si une autre carte Feu est en jeu.",
+    "image": "images/dante-seigneur-du-feu.jpg"
+  },
+  {
+    "id": "tamurkhan",
+    "name": "Tamurkhan, le ver parasite",
+    "faction": "Nurgle",
+    "type": "Seigneur Démon",
+    "cost": 0,
+    "power": 4,
+    "keywords": ["Peste", "Combo"],
+    "effect": "Si cette carte est dans votre main, piochez une carte contenant 'Tamurkhan'.",
+    "image": "images/tamurkhan.jpg"
+  },
+  {
+    "id": "marine-tactique-ultra",
+    "name": "Marine Tactique",
+    "faction": "Ultramarines",
+    "type": "Troupe",
+    "cost": 1,
+    "power": 2,
+    "keywords": ["Base", "Ligne de front"],
+    "effect": "Une unité polyvalente, sans capacité particulière.",
+    "image": ""
+  }
+]
