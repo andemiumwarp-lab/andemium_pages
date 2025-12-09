@@ -1,2 +1,2 @@
 # andemium_pages
-page permettant de générer des decks
+Page permettant de générer des decks
