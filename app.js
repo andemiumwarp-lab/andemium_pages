@@ -80,7 +80,7 @@ function initFiltersFromCards() {
         const opt = document.createElement("option");
         opt.value = t;
         opt.textContent = t;
-        filterType.append.appendChild(opt);
+        filterType.appendChild(opt);
     });
 
     factionPagesContainer.innerHTML = "";
