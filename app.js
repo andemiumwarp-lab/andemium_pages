@@ -36,12 +36,11 @@ document.addEventListener("DOMContentLoaded", () => {
     loadDeckFromStorage();
     loadCards();
     btnResetFilters.addEventListener("click", resetFilters);
-    [filterFaction, filterType].forEach(el =>
+    [filterFaction, filterType, filterCost].forEach(el =>
         el.addEventListener("change", applyFilters)
     );
-    [filterCostMin, filterCostMax, filterSearch].forEach(el =>
-        el.addEventListener("input", applyFilters)
-    );
+
+    filterSearch.addEventListener("input", applyFilters);
 
     btnClearDeck.addEventListener("click", clearDeck);
     btnExportDeck.addEventListener("click", exportDeck);
