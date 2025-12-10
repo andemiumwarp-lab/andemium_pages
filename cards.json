@@ -48,5 +48,35 @@
     "keywords": ["Permet de piocher"],
     "effect": "Lorsque cette carte subit des dégâts lors du tour de votre adversaire, piochez une carte.",
     "image": "images/suppressor.png"
+  },
+  {
+    "id": "devastator",
+    "name": "Devastator",
+    "faction": "Ultramarine",
+    "type": "Escouade",
+    "cost": 0,
+    "keywords": ["Se buff"],
+    "effect": "Lorsque cette carte cible une carte véhicule ou héros, elle obtient +2 dégâts en tir.",
+    "image": "images/devastator.png"
+  },
+  {
+    "id": "escouade_reiver",
+    "name": "Escouade Reiver",
+    "faction": "Ultramarine",
+    "type": "Escouade",
+    "cost": 0,
+    "keywords": ["Ignore condition d'attaque"],
+    "effect": "Lorsque cette carte effectue une attaque au corps à corps, elle peut cibler une carte située hors de sa portée de corps à corps.",
+    "image": "images/reiver.png"
+  }
+  {
+    "id": "escouade_terminator",
+    "name": "Escouade Terminator",
+    "faction": "Ultramarine",
+    "type": "Elite",
+    "cost": 1,
+    "keywords": ["Tank", "Se buff"],
+    "effect": "tant que cette carte est sur le terrain, les cartes “escouades” autour gagnent 1 point d’armure.",
+    "image": "images/terminator.png"
   }
 ]
