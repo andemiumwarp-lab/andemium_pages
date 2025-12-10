@@ -177,6 +177,46 @@
     "keywords": ["Buff", "Boss", "Se déplace et attaque"],
     "effect": "Tant que cette carte est en jeu, vos cartes gagnent +1 PV ainsi que +1 en dégâts de tir et de corps à corps pour chaque paire de cartes sur votre terrain (une en ligne de combat et une en ligne de tir). Une fois par tour, vous pouvez changer de front deux cartes “elite” ou/et “escouade” et elle peuvent attaquer malgré cela. ",
     "image": "images/ultramarines/roboute_gulliman.png"
+  },
+
+  {
+    "id": "marneus",
+    "name": "Marneus Calgar",
+    "faction": "Ultramarine",
+    "type": "Héros légendaire",
+    "cost": 2,
+    "range": 2,
+    "ranged": 3,
+    "melee": 3,
+    "hp": 4,
+    "keywords": ["Spawner", "Boss"],
+    "effect": "Quand cette carte est invoquée, placer deux jetons “Vitrix” autour d’elle. Pour attaquer cette carte, il faut d’abord détruire ses jetons.",
+    "image": "images/ultramarines/marneus.png"
+  },
+
+  {
+    "id": "predator",
+    "name": "Predator",
+    "faction": "Ultramarine",
+    "type": "Véhicule",
+    "cost": 2,
+    "range": 2,
+    "ranged": 5,
+    "melee": 1,
+    "hp": 6,
+    "keywords": ["Gros dégâts", "Perce ligne", "Boss"],
+    "effect": "Lorsque cette carte détruit une unité ennemie située sur la ligne de front adverse, si les dégâts infligés excèdent les points de vie de la cible, l'excédent est infligé directement au joueur adverse sous forme de dégâts.",
+    "image": "images/ultramarines/predator.png"
+  },
+
+  {
+    "id": "module_de_largage",
+    "name": "Module de largage",
+    "faction": "Ultramarine",
+    "type": "Capacité",
+    "keywords": ["Spawner", "Durant le tour de votre adversaire"],
+    "effect": "Une fois par tour , pendant le tour de votre adversaire. Activer cette carte depuis votre main. Placez une carte “escouade” depuis votre deck sur le terrain",
+    "image": "images/ultramarines/module.png"
   }
 
 ]
