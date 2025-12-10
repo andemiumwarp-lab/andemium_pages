@@ -4,7 +4,7 @@
 let allCards = [];
 let filteredCards = [];
 let deck = {}; // { cardId: count }
-
+console.log(">>> VERSION 3.0 CHARGÉE");
 /* ============================================================
    RÉFÉRENCES DOM
 ============================================================ */
