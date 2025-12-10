@@ -17,7 +17,7 @@
   {
     "id": "scouts",
     "name": "Scouts",
-    "faction": "Ultramarine",
+    "faction": "Ultramarines",
     "type": "Escouade",
     "cost": 0,
     "range": 2,
@@ -32,7 +32,7 @@
   {
     "id": "intercessors",
     "name": "Intercessors",
-    "faction": "Ultramarine",
+    "faction": "Ultramarines",
     "type": "Escouade",
     "cost": 0,
     "range": 2,
@@ -47,7 +47,7 @@
   {
     "id": "escouade_assaut",
     "name": "Escouade d’assaut",
-    "faction": "Ultramarine",
+    "faction": "Ultramarines",
     "type": "Escouade",
     "cost": 0,
     "range": 1,
@@ -62,7 +62,7 @@
   {
     "id": "vanguard_suppressor",
     "name": "Vanguard Suppressor",
-    "faction": "Ultramarine",
+    "faction": "Ultramarines",
     "type": "Escouade",
     "cost": 0,
     "range": 1,
@@ -77,7 +77,7 @@
   {
     "id": "devastator",
     "name": "Devastator",
-    "faction": "Ultramarine",
+    "faction": "Ultramarines",
     "type": "Escouade",
     "cost": 0,
     "range": 2,
@@ -92,7 +92,7 @@
   {
     "id": "escouade_reiver",
     "name": "Escouade Reiver",
-    "faction": "Ultramarine",
+    "faction": "Ultramarines",
     "type": "Escouade",
     "cost": 0,
     "range": 1,
@@ -107,7 +107,7 @@
   {
     "id": "escouade_terminator",
     "name": "Escouade Terminator",
-    "faction": "Ultramarine",
+    "faction": "Ultramarines",
     "type": "Elite",
     "cost": 1,
     "range": 1,
@@ -122,7 +122,7 @@
   {
     "id": "librarian",
     "name": "Librarian",
-    "faction": "Ultramarine",
+    "faction": "Ultramarines",
     "type": "Elite",
     "cost": 1,
     "range": 1,
@@ -137,7 +137,7 @@
   {
     "id": "lieutenant_titus",
     "name": "Lieutenant Titus",
-    "faction": "Ultramarine",
+    "faction": "Ultramarines",
     "type": "Elite",
     "cost": 1,
     "range": 1,
@@ -152,7 +152,7 @@
   {
     "id": "véteran",
     "name": "Vétéran",
-    "faction": "Ultramarine",
+    "faction": "Ultramarines",
     "type": "Elite",
     "cost": 1,
     "range": 1,
@@ -167,7 +167,7 @@
   {
     "id": "roboute_gulliman",
     "name": "Roboute Gulliman",
-    "faction": "Ultramarine",
+    "faction": "Ultramarines",
     "type": "Héros légendaire",
     "cost": 2,
     "range": 2,
@@ -182,7 +182,7 @@
   {
     "id": "marneus",
     "name": "Marneus Calgar",
-    "faction": "Ultramarine",
+    "faction": "Ultramarines",
     "type": "Héros légendaire",
     "cost": 2,
     "range": 2,
@@ -197,7 +197,7 @@
   {
     "id": "predator",
     "name": "Predator",
-    "faction": "Ultramarine",
+    "faction": "Ultramarines",
     "type": "Véhicule",
     "cost": 2,
     "range": 2,
@@ -212,7 +212,7 @@
   {
     "id": "module_de_largage",
     "name": "Module de largage",
-    "faction": "Ultramarine",
+    "faction": "Ultramarines",
     "type": "Capacité",
     "keywords": ["Spawner", "Durant le tour de votre adversaire"],
     "effect": "Une fois par tour , pendant le tour de votre adversaire. Activer cette carte depuis votre main. Placez une carte “escouade” depuis votre deck sur le terrain",
@@ -222,7 +222,7 @@
   {
     "id": "ultima_fondation",
     "name": "Ultima Fondation",
-    "faction": "Ultramarine",
+    "faction": "Ultramarines",
     "type": "Capacité",
     "keywords": ["Se déplace et attaque"],
     "effect": "A la fin de votre tour, vous pouvez changez de ligne deux cartes",
@@ -232,7 +232,7 @@
   {
     "id": "bombardement_stratégique",
     "name": "Bombardement stratégique",
-    "faction": "Ultramarine",
+    "faction": "Ultramarines",
     "type": "Capacité",
     "keywords": ["Se déplace et attaque", "Dégâts"],
     "effect": "Inflige 1 dégât sur toute une ligne. Pour chaque carte détruite, vous pouvez changer de ligne une “escouade” et elle pourra attaquer ce tour-ci",
@@ -242,7 +242,7 @@
   {
     "id": "bannière_des_héros",
     "name": "Bannière des héros",
-    "faction": "Ultramarine",
+    "faction": "Ultramarines",
     "type": "Capacité",
     "keywords": ["Armure"],
     "effect": "Ciblez deux cartes “élite” et/ou “escouade”, elles gagnent 2 d’armures pendant 1 tour",
