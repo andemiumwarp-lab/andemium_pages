@@ -10,23 +10,13 @@
     "image": "images/Tamurkhan_le_ver_parasite.png"
   },
   {
-    "id": "kayzk_le_souille",
-    "name": "Kayzk le souillé",
-    "faction": "Nurgle",
-    "type": "Héros",
-    "cost": 1,
-    "keywords": ["Peste", "Combo", "Tamurkhan"],
-    "effect": "test",
-    "image": "images/Tamurkhan_le_ver_parasite.png"
-  },
-  {
-    "id": "TEST",
-    "name": "TEST",
-    "faction": "Nurgle",
-    "type": "TEST",
+    "id": "Scouts",
+    "name": "Scouts",
+    "faction": "Ultramarine",
+    "type": "escouade",
     "cost": 0,
-    "keywords": ["TEST", "TEST", "TEST"],
-    "effect": "TEST",
-    "image": "TEST"
+    "keywords": ["Effet à la destrcution"],
+    "effect": "Une fois par tour, lorsque cette carte est détruite, placez une autre carte 'Scouts' de votre deck sur la même ligne.",
+    "image": "/images/scout.png"
   }
 ]
