@@ -10,8 +10,8 @@
     "image": "images/Tamurkhan_le_ver_parasite.png"
   },
   {
-    "id": "Scouts",
-    "name": "scouts",
+    "id": "scouts",
+    "name": "Scouts",
     "faction": "Ultramarine",
     "type": "escouade",
     "cost": 0,
@@ -20,8 +20,8 @@
     "image": "/images/scout.png"
   },
   {
-    "id": "Intercessors",
-    "name": "intercessors",
+    "id": "intercessors",
+    "name": "Intercessors",
     "faction": "Ultramarine",
     "type": "escouade",
     "cost": 0,
