@@ -1,35 +1,440 @@
 [
   {
-    "id": "dante-seigneur-du-feu",
-    "name": "Dante, Seigneur du Feu",
-    "faction": "Blood Angels",
-    "type": "Seigneur",
-    "cost": 3,
-    "power": 6,
-    "keywords": ["Charge", "Feu", "Légendaire"],
-    "effect": "Charge. +2 ATK si une autre carte Feu est en jeu.",
-    "image": "images/dante-seigneur-du-feu.jpg"
-  },
-  {
     "id": "tamurkhan",
     "name": "Tamurkhan, le ver parasite",
     "faction": "Nurgle",
-    "type": "Seigneur Démon",
+    "type": "Héros légendaire",
     "cost": 0,
-    "power": 4,
+    "range": 1,
+    "ranged": 0,
+    "melee": 2,
+    "hp": 6,
     "keywords": ["Peste", "Combo"],
-    "effect": "Si cette carte est dans votre main, piochez une carte contenant 'Tamurkhan'.",
-    "image": "images/tamurkhan.jpg"
+    "effect": "Si cette carte est dans votre main, piochez une carte dont le nom contient « Tamurkhan ». Vous pouvez l’invoquer gratuitement en retirant du jeu, depuis votre cimetière, entre une et trois cartes à 0 sacrifice. Appliquez un nombre de points de Peste égal au nombre de cartes retirées. Lorsque cette carte est utilisée comme sacrifice, elle retourne dans votre deck.",
+    "image": "images/ultramarines/Tamurkhan_le_ver_parasite.png"
+  },
+
+  {
+    "id": "scouts",
+    "name": "Scouts",
+    "faction": "Ultramarine",
+    "type": "Escouade",
+    "cost": 0,
+    "range": 2,
+    "ranged": 1,
+    "melee": 1,
+    "hp": 1,
+    "keywords": ["Effet à la destruction", "Revient sur le terrain"],
+    "effect": "Une fois par tour, lorsque cette carte est détruite, placez une autre carte « Scouts » de votre deck sur la même ligne.",
+    "image": "images/ultramarines/scout.png"
+  },
+
+  {
+    "id": "intercessors",
+    "name": "Intercessors",
+    "faction": "Ultramarine",
+    "type": "Escouade",
+    "cost": 0,
+    "range": 2,
+    "ranged": 2,
+    "melee": 1,
+    "hp": 2,
+    "keywords": ["Effet à l'invocation", "Permet de piocher"],
+    "effect": "Lorsque cette carte est invoquée, piochez une carte « Escouade » de votre deck.",
+    "image": "images/ultramarines/intercessors.png"
+  },
+
+  {
+    "id": "escouade_assaut",
+    "name": "Escouade d’assaut",
+    "faction": "Ultramarine",
+    "type": "Escouade",
+    "cost": 0,
+    "range": 1,
+    "ranged": 1,
+    "melee": 2,
+    "hp": 2,
+    "keywords": ["Se déplace et attaque"],
+    "effect": "Cette carte peut se déplacer sur un nouveau front et attaquer dans le même tour.",
+    "image": "images/ultramarines/escouade_assaut.png"
+  },
+
+  {
+    "id": "vanguard_suppressor",
+    "name": "Vanguard Suppressor",
+    "faction": "Ultramarine",
+    "type": "Escouade",
+    "cost": 0,
+    "range": 1,
+    "ranged": 2,
+    "melee": 0,
+    "hp": 3,
+    "keywords": ["Permet de piocher"],
+    "effect": "Lorsque cette carte subit des dégâts lors du tour de votre adversaire, piochez une carte.",
+    "image": "images/ultramarines/suppressor.png"
+  },
+
+  {
+    "id": "devastator",
+    "name": "Devastator",
+    "faction": "Ultramarine",
+    "type": "Escouade",
+    "cost": 0,
+    "range": 2,
+    "ranged": 2,
+    "melee": 0,
+    "hp": 2,
+    "keywords": ["Se buff"],
+    "effect": "Lorsque cette carte cible un véhicule ou un héros, elle obtient +2 dégâts en tir.",
+    "image": "images/ultramarines/devastator.png"
+  },
+
+  {
+    "id": "escouade_reiver",
+    "name": "Escouade Reiver",
+    "faction": "Ultramarine",
+    "type": "Escouade",
+    "cost": 0,
+    "range": 1,
+    "ranged": 1,
+    "melee": 2,
+    "hp": 2,
+    "keywords": ["Ignore les restrictions d'attaque"],
+    "effect": "Lorsque cette carte effectue une attaque au corps à corps, elle peut cibler une carte située hors de sa portée.",
+    "image": "images/ultramarines/reiver.png"
+  },
+
+  {
+    "id": "escouade_terminator",
+    "name": "Escouade Terminator",
+    "faction": "Ultramarine",
+    "type": "Elite",
+    "cost": 1,
+    "range": 1,
+    "ranged": 2,
+    "melee": 2,
+    "hp": 5,
+    "keywords": ["Tank", "Se buff"],
+    "effect": "Tant que cette carte est sur le terrain, les cartes « Escouade » autour gagnent 1 point d’armure.",
+    "image": "images/ultramarines/terminator.png"
+  },
+
+  {
+    "id": "librarian",
+    "name": "Librarian",
+    "faction": "Ultramarine",
+    "type": "Elite",
+    "cost": 1,
+    "range": 1,
+    "ranged": 3,
+    "melee": 1,
+    "hp": 3,
+    "keywords": ["Inflige des dégâts", "Negate"],
+    "effect": "Lorsque cette carte est invoquée, infligez 2 dégâts à une cible, si elle est détruite, vous pouvez infligé 2 dégâts supplémentaire. une fois par tour, vous pouvez annuler l’effet d’une unité adverse.",
+    "image": "images/ultramarines/librarian.png"
+  },
+
+  {
+    "id": "lieutenant_titus",
+    "name": "Lieutenant Titus",
+    "faction": "Ultramarine",
+    "type": "Elite",
+    "cost": 1,
+    "range": 1,
+    "ranged": 1,
+    "melee": 4,
+    "hp": 4,
+    "keywords": ["Inflige des dégâts", "Effet en mourant"],
+    "effect": "Lorsque cette carte est détruite au corps à corps, elle peut effectuer une dernière attaque avant d’être envoyée au cimetière, même si elle a déjà contre-attaqué ce tour-ci.",
+    "image": "images/ultramarines/lieutenant_titus.png"
+  },
+
+  {
+    "id": "véteran",
+    "name": "Vétéran",
+    "faction": "Ultramarine",
+    "type": "Elite",
+    "cost": 1,
+    "range": 1,
+    "ranged": 1,
+    "melee": 3,
+    "hp": 3,
+    "keywords": ["Buff"],
+    "effect": "Cette carte donne +1 cac à toute les cartes sur la même ligne.",
+    "image": "images/ultramarines/veteran.png"
+  },
+
+  {
+    "id": "roboute_gulliman",
+    "name": "Roboute Gulliman",
+    "faction": "Ultramarine",
+    "type": "Héros légendaire",
+    "cost": 2,
+    "range": 2,
+    "ranged": 3,
+    "melee": 4,
+    "hp": 6,
+    "keywords": ["Buff", "Boss", "Se déplace et attaque"],
+    "effect": "Tant que cette carte est en jeu, vos cartes gagnent +1 PV ainsi que +1 en dégâts de tir et de corps à corps pour chaque paire de cartes sur votre terrain (une en ligne de combat et une en ligne de tir). Une fois par tour, vous pouvez changer de front deux cartes “elite” ou/et “escouade” et elle peuvent attaquer malgré cela. ",
+    "image": "images/ultramarines/roboute_gulliman.png"
+  },
+
+  {
+    "id": "marneus",
+    "name": "Marneus Calgar",
+    "faction": "Ultramarine",
+    "type": "Héros légendaire",
+    "cost": 2,
+    "range": 2,
+    "ranged": 3,
+    "melee": 3,
+    "hp": 4,
+    "keywords": ["Spawner", "Boss"],
+    "effect": "Quand cette carte est invoquée, placer deux jetons “Vitrix” autour d’elle. Pour attaquer cette carte, il faut d’abord détruire ses jetons.",
+    "image": "images/ultramarines/marneus.png"
+  },
+
+  {
+    "id": "predator",
+    "name": "Predator",
+    "faction": "Ultramarine",
+    "type": "Véhicule",
+    "cost": 2,
+    "range": 2,
+    "ranged": 5,
+    "melee": 1,
+    "hp": 6,
+    "keywords": ["Gros dégâts", "Perce ligne", "Boss"],
+    "effect": "Lorsque cette carte détruit une unité ennemie située sur la ligne de front adverse, si les dégâts infligés excèdent les points de vie de la cible, l'excédent est infligé directement au joueur adverse sous forme de dégâts.",
+    "image": "images/ultramarines/predator.png"
+  },
+
+  {
+    "id": "module_de_largage",
+    "name": "Module de largage",
+    "faction": "Ultramarine",
+    "type": "Capacité",
+    "keywords": ["Spawner", "Durant le tour de votre adversaire"],
+    "effect": "Une fois par tour , pendant le tour de votre adversaire. Activer cette carte depuis votre main. Placez une carte “escouade” depuis votre deck sur le terrain",
+    "image": "images/ultramarines/module.png"
+  },
+
+  {
+    "id": "ultima_fondation",
+    "name": "Ultima Fondation",
+    "faction": "Ultramarine",
+    "type": "Capacité",
+    "keywords": ["Se déplace et attaque"],
+    "effect": "A la fin de votre tour, vous pouvez changez de ligne deux cartes",
+    "image": "images/ultramarines/fondation.png"
+  },
+  
+  {
+    "id": "bombardement_stratégique",
+    "name": "Bombardement stratégique",
+    "faction": "Ultramarine",
+    "type": "Capacité",
+    "keywords": ["Se déplace et attaque", "Dégâts"],
+    "effect": "Inflige 1 dégât sur toute une ligne. Pour chaque carte détruite, vous pouvez changer de ligne une “escouade” et elle pourra attaquer ce tour-ci",
+    "image": "images/ultramarines/bombardement.png"
+  },
+
+  {
+    "id": "bannière_des_héros",
+    "name": "Bannière des héros",
+    "faction": "Ultramarine",
+    "type": "Capacité",
+    "keywords": ["Armure"],
+    "effect": "Ciblez deux cartes “élite” et/ou “escouade”, elles gagnent 2 d’armures pendant 1 tour",
+    "image": "images/ultramarines/banière.png"
   },
   {
-    "id": "marine-tactique-ultra",
-    "name": "Marine Tactique",
+    "id": "tactique_tir",
+    "name": "Tactique de Tir",
     "faction": "Ultramarines",
-    "type": "Troupe",
+    "type": "Capacité",
+    "keywords": ["Buff"],
+    "effect": "Placer cette carte sur une de vos lignes. Lorsqu’une carte sur cette ligne attaque à distance, elle gagne +1 dégât",
+    "image": "images/tactique_de_tir.png"
+  },
+  {
+    "id": "tactique_defense",
+    "name": "Tactique de Défense",
+    "faction": "Ultramarines",
+    "type": "Capacité",
+    "keywords": ["Buff"],
+    "effect": "Placer cette carte sur une de vos lignes. Lorsqu’une carte est déplacée sur cette ligne, elle gagne +1 armure",
+    "image": "images/tactique_de_defense.png"
+  },
+  {
+    "id": "tactique_assaut",
+    "name": "Tactique d’Assaut",
+    "faction": "Ultramarines",
+    "type": "Capacité",
+    "keywords": ["Buff"],
+    "effect": "Placer cette carte sur une de vos lignes. Lorsqu’une carte attaque au cac sur cette ligne, elle gagne +1 dégât",
+    "image": "images/tactique_assaut.png"
+  },
+  {
+    "id": "rhino",
+    "name": "Rhino",
+    "faction": "Ultramarines",
+    "type": "Véhicule",
+    "cost": 0,
+    "range": 1,
+    "ranged": 1,
+    "melee": 0,
+    "hp": 3,
+    "keywords": ["Tank", "Protection"],
+    "effect": "Si cette carte est invoquée sur la ligne de front, sélectionner une autre carte sur la même ligne (hors “véhicule”), elle ne peut pas etre ciblé par des attaques ou capacités tant que cette carte est sur le terrain",
+    "image": "images/rhino.png"
+  },
+  {
+    "id": "sergent_chronus",
+    "name": "Sergent Chronus",
+    "faction": "Ultramarines",
+    "type": "Héros légendaire",
+    "cost": 0,
+    "range": 2,
+    "ranged": 1,
+    "melee": 1,
+    "hp": 3,
+    "keywords": ["Buff", "Soigne"],
+    "effect": "Lorsque cette carte est invoquée, sélectionnez une carte “véhicule” sur votre terrain, elle gagne +1 portée. De plus, a chaque début de tour, tant que cette carte est sur le terrain, redonnez 2 pv perdu à une carte “véhicule” sur votre terrain",
+    "image": "images/sergent_chronus.png"
+  },
+  {
+    "id": "land_speeder",
+    "name": "Land Speeder",
+    "faction": "Ultramarines",
+    "type": "Véhicule",
+    "cost": 0,
+    "range": 2,
+    "ranged": 2,
+    "melee": 0,
+    "hp": 2,
+    "keywords": ["Regarde le deck"],
+    "effect": "Lors de l’invocation de cette carte, regardez les trois première cartes au dessus de votre deck. Replacez les dans l’ordre que vous voulez au dessus de votre deck",
+    "image": "images/land_speeder.png"
+  },
+
+  {
+    "id": "impulsor",
+    "name": "Impulsor",
+    "faction": "Ultramarines",
+    "type": "Véhicule",
     "cost": 1,
-    "power": 2,
-    "keywords": ["Base", "Ligne de front"],
-    "effect": "Une unité polyvalente, sans capacité particulière.",
-    "image": ""
+    "range": 1,
+    "ranged": 2,
+    "melee": 0,
+    "hp": 5,
+    "keywords": ["Protection", "Tank"],
+    "effect": "Si cette carte est invoquée sur la ligne de front, aucune autre carte de votre terrain ne peut être ciblé par une attaque ou une capacité tant que cette carte est sur le terrain",
+    "image": "images/impulsor.png"
+  },
+  {
+    "id": "stormtalon",
+    "name": "Stormtalon",
+    "faction": "Ultramarines",
+    "type": "Véhicule",
+    "cost": 1,
+    "range": 2,
+    "ranged": 4,
+    "melee": 0,
+    "hp": 2,
+    "keywords": ["Dégâts", "Pars et reviens"],
+    "effect": "A la fin du tour où cette carte a été invoquée, vous pouvez la retirer de votre terrain. au début de votre prochain tour, cette carte retourne sur votre ligne de front",
+    "image": "images/stormtalon.png"
+  },
+  {
+    "id": "gladiator_gatlings",
+    "name": "Gladiator à Gatlings",
+    "faction": "Ultramarines",
+    "type": "Véhicule",
+    "cost": 2,
+    "range": 2,
+    "ranged": 4,
+    "melee": 1,
+    "hp": 6,
+    "keywords": ["Tank", "Boss", "Inflige des dégâts"],
+    "effect": "Lorsque cette carte cible une carte adverse, elle inflige deux de dégâts à toute la ligne de la cible",
+    "image": "images/gladiator_gatlings.png"
+  },
+  {
+    "id": "usine_reparation",
+    "name": "Usine de Réparation",
+    "faction": "Ultramarines",
+    "type": "Capacité",
+    "keywords": ["Soigne"],
+    "effect": "Placer cette carte sur une de vos lignes. Lorsqu’une carte “véhicule” est placé sur cette ligne, elle regagne à la fin de chacun de vos tours 1 pv",
+    "image": "images/usine_reparation.png"
+  },
+  {
+    "id": "mer_de_metal",
+    "name": "Mer de Métal",
+    "faction": "Ultramarines",
+    "type": "Capacité",
+    "keywords": ["Replace depuis le cimetière"],
+    "effect": "Placer cette carte sur une de vos lignes. Lorsqu’une carte “véhicule” est détruit sur cette ligne, sélectionner une carte “véhicule” dans votre cimetière autre que celle-ci, elle retourne dans votre deck",
+    "image": "images/mer_de_metal.png"
+  },
+  {
+    "id": "plan_fabrication",
+    "name": "Plan de Fabrication",
+    "faction": "Ultramarines",
+    "type": "Capacité",
+    "keywords": ["Permet de piocher"],
+    "effect": "une fois par tour, Piochez une carte “véhicule” depuis votre deck",
+    "image": "images/plan_fabrication.png"
+  },
+  {
+    "id": "titus_ultramar",
+    "name": "Titus d’Ultramar",
+    "faction": "Ultramarines",
+    "type": "Héros",
+    "cost": 1,
+    "range": 1,
+    "ranged": 1,
+    "melee": 4,
+    "hp": 4,
+    "keywords": ["Armure"],
+    "effect": "cette carte porte le nom de “lieutenant titus”. Si cette carte est invoquée seule sur votre terrain, elle gagne +2 d’armure ",
+    "image": "images/titus_ultramar.png"
+  },
+  {
+    "id": "lieutenant_infaillible",
+    "name": "Le Lieutenant Infaillible",
+    "faction": "Ultramarines",
+    "type": "Capacité",
+    "keywords": ["Permet de piocher"],
+    "effect": "Une fois par tour, piochez une carte incluant le nom “titus” dans son titre depuis votre deck",
+    "image": "images/lieutenant_infaillible.png"
+  },
+  {
+    "id": "titus_guidant_ses_freres",
+    "name": "Titus guidant ses frères",
+    "faction": "Ultramarines",
+    "type": "Capacité",
+    "keywords": ["Permet d'invoquer gratuitement"],
+    "effect": "Lorsque \"Titus\" est sur votre terrain, vous pouvez activer cette carte pour invoquer depuis votre main une carte \"Escouade\" gratuitement.",
+    "image": "images/titus_guidant_ses_freres.png"
+  },
+  {
+    "id": "assaut_de_titus",
+    "name": "Assaut de Titus",
+    "faction": "Ultramarines",
+    "type": "Capacité",
+    "keywords": ["Buff"],
+    "effect": "Équipez cette carte à \"Titus\" s'il est sur votre terrain. Tant qu'elle est équipée, Titus peut attaquer une seconde fois s'il a détruit une carte, et il ne subit pas de dégâts de contre-attaque.",
+    "image": "images/assaut_de_titus.png"
+  },
+  {
+    "id": "tacticien_de_genie",
+    "name": "Tacticien de génie",
+    "faction": "Ultramarines",
+    "type": "Capacité",
+    "keywords": ["Permet d'invoquer gratuitement"],
+    "effect": "Lorsque \"Roboute Guilliman\" est invoqué en sacrifiant des cartes \"Escouade\", vous pouvez activer cette carte (une fois par tour). Si vous le faites, les cartes sacrifiées lors de son invocation restent sur votre terrain au lieu d’être envoyées au cimetière.",
+    "image": "images/tacticien_de_genie.png"
   }
 ]

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8" />
+    <title>Andemium of Warp – Deckbuilder</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<header class="topbar">
+    <div class="logo">Andemium of Warp</div>
+    <nav class="nav-tabs">
+        <button class="tab-button active" data-tab="cards">Toutes les cartes</button>
+        <button class="tab-button" data-tab="deck">Mon deck</button>
+    </nav>
+</header>
+
+<main>
+    <!-- SECTION CARTES -->
+    <section id="tab-cards" class="tab active">
+        <aside class="sidebar">
+            <h2>Filtres</h2>
+
+            <label>Faction</label>
+            <select id="filterFaction">
+                <option value="">Toutes</option>
+                <option>Ultramarine</option>
+                <option>Blood Angels</option>
+                <option>Salamanders</option>
+                <option>Nurgle</option>
+                <option>Tzeentch</option>
+                <option>Adeptus Custodes</option>
+                <option>Harlequins</option>
+                <!-- etc -->
+            </select>
+
+            <label>Type</label>
+            <select id="filterType">
+                <option value="">Tous</option>
+                <option>Héros légendaire</option>
+                <option>Héros</option>
+                <option>Escouade</option>
+                <option>Elite</option>
+                <option>Véhicule</option>
+                <option>Magie</option>
+                <option>Capacité</option>
+            </select>
+
+            <label>Coût (min – max)</label>
+            <div class="range-row">
+                <input type="number" id="filterCostMin" placeholder="min" />
+                <input type="number" id="filterCostMax" placeholder="max" />
+            </div>
+
+            <label>Recherche texte</label>
+            <input type="text" id="filterSearch" placeholder="Nom, mot-clé, effet..." />
+
+            <h2>Pages par faction</h2>
+            <div id="factionPages" class="faction-buttons">
+                <!-- généré par JS -->
+            </div>
+        </aside>
+
+        <section class="main-panel">
+            <div class="panel-header">
+                <h1 id="cardsTitle">Toutes les cartes</h1>
+                <div class="results-info">
+                    <span id="cardsCount">0 cartes</span>
+                </div>
+            </div>
+            <div id="cardsGrid" class="cards-grid"></div>
+        </section>
+
+        <aside class="deck-panel">
+            <h2>Deck ( <span id="deckCount">0</span> cartes )</h2>
+            <ul id="deckList"></ul>
+
+            <div class="deck-actions">
+                <button id="btnClearDeck">Vider le deck</button>
+                <button id="btnExportDeck">Exporter le deck</button>
+                <label class="import-label">
+                    Importer un deck
+                    <input type="file" id="importDeckFile" accept="application/json" />
+                </label>
+            </div>
+        </aside>
+    </section>
+
+    <!-- SECTION DECK SEUL -->
+    <section id="tab-deck" class="tab">
+        <div class="deck-full-view">
+            <h1>Mon deck</h1>
+            <p>Vue détaillée du deck.</p>
+            <div id="deckCardGrid" class="cards-grid"></div>
+        </div>
+    </section>
+</main>
+
+<script src="app.js"></script>
+</body>
+</html>
