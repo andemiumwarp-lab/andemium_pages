@@ -28,5 +28,15 @@
     "keywords": ["Effet à l'invocation", "Permet de piocher"],
     "effect": "Lorsque cette carte est invoquée, piochez une carte “escouade” de votre deck.",
     "image": "images/intercessors.png"
+  },
+  {
+    "id": "escouade_d’assaut",
+    "name": "Escouade d’assaut",
+    "faction": "Ultramarine",
+    "type": "escouade",
+    "cost": 0,
+    "keywords": ["Frappe et se déplace"],
+    "effect": "Cette carte peut se déplacer sur un nouveau front et attaquer dans le même tour.",
+    "image": "images/escouade_assaut.png"
   }
 ]
