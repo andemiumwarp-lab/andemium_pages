@@ -111,17 +111,28 @@ function initFiltersFromCards() {
 function applyFilters() {
     const faction = filterFaction.value;
     const type = filterType.value;
-    const costMin = filterCostMin.value ? parseInt(filterCostMin.value) : null;
-    const costMax = filterCostMax.value ? parseInt(filterCostMax.value) : null;
+    const costFilter = filterCost.value;
     const search = filterSearch.value.toLowerCase();
 
     filteredCards = allCards.filter(card => {
+        // Faction
         if (faction && card.faction !== faction) return false;
+
+        // Type
         if (type && card.type !== type) return false;
 
-        if (costMin !== null && Number(card.cost) < costMin) return false;
-        if (costMax !== null && Number(card.cost) > costMax) return false;
+        // Coût
+        if (costFilter !== "") {
+            const c = Number(card.cost);
 
+            if (costFilter === "other") {
+                if (c === 0 || c === 1 || c === 2) return false;
+            } else if (c !== Number(costFilter)) {
+                return false;
+            }
+        }
+
+        // Recherche texte
         if (search) {
             const haystack = [
                 card.name,
@@ -130,6 +141,7 @@ function applyFilters() {
                 card.type,
                 card.faction
             ].join(" ").toLowerCase();
+
             if (!haystack.includes(search)) return false;
         }
 
@@ -141,6 +153,7 @@ function applyFilters() {
 
     renderCards(filteredCards, cardsGrid, true);
 }
+
 
 /* ============================================================
    RENDU DES CARTES

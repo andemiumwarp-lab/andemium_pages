@@ -45,11 +45,15 @@
                 <option>Capacité</option>
             </select>
 
-            <label>Coût (min – max)</label>
-            <div class="range-row">
-                <input type="number" id="filterCostMin" placeholder="min" />
-                <input type="number" id="filterCostMax" placeholder="max" />
-            </div>
+            <label>Coût</label>
+            <select id="filterCost">
+                <option value="">Tous</option>
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="other">Autre</option>
+            </select>
+
 
             <label>Recherche texte</label>
             <input type="text" id="filterSearch" placeholder="Nom, mot-clé, effet..." />
