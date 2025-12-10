@@ -17,9 +17,9 @@ const btnResetFilters = document.getElementById("btnResetFilters");
 
 const filterFaction = document.getElementById("filterFaction");
 const filterType = document.getElementById("filterType");
-const filterCostMin = document.getElementById("filterCostMin");
-const filterCostMax = document.getElementById("filterCostMax");
+const filterCost = document.getElementById("filterCost");
 const filterSearch = document.getElementById("filterSearch");
+
 
 const factionPagesContainer = document.getElementById("factionPages");
 
@@ -35,16 +35,25 @@ const deckCardGrid = document.getElementById("deckCardGrid");
 document.addEventListener("DOMContentLoaded", () => {
     loadDeckFromStorage();
     loadCards();
-    btnResetFilters.addEventListener("click", resetFilters);
+
+    // Rafraîchit sur TOUT changement des filtres
     [filterFaction, filterType, filterCost].forEach(el =>
         el.addEventListener("change", applyFilters)
     );
 
+    // Rafraîchissement en tapant du texte (mise à jour à CHAQUE lettre)
     filterSearch.addEventListener("input", applyFilters);
 
-    btnClearDeck.addEventListener("click", clearDeck);
-    btnExportDeck.addEventListener("click", exportDeck);
-    importDeckFile.addEventListener("change", importDeckFromFile);
+    // Bouton reset si présent
+    if (btnResetFilters) {
+        btnResetFilters.addEventListener("click", () => {
+            filterFaction.value = "";
+            filterType.value = "";
+            filterCost.value = "";
+            filterSearch.value = "";
+            applyFilters();
+        });
+    }
 
     setupTabs();
 });
@@ -115,19 +124,15 @@ function applyFilters() {
     const search = filterSearch.value.toLowerCase();
 
     filteredCards = allCards.filter(card => {
-        // Faction
         if (faction && card.faction !== faction) return false;
-
-        // Type
         if (type && card.type !== type) return false;
 
-        // Coût
+        // Filtre coût
         if (costFilter !== "") {
-            const c = Number(card.cost);
-
+            const cost = Number(card.cost);
             if (costFilter === "other") {
-                if (c === 0 || c === 1 || c === 2) return false;
-            } else if (c !== Number(costFilter)) {
+                if (cost === 0 || cost === 1 || cost === 2) return false;
+            } else if (cost !== Number(costFilter)) {
                 return false;
             }
         }
@@ -141,17 +146,16 @@ function applyFilters() {
                 card.type,
                 card.faction
             ].join(" ").toLowerCase();
-
             if (!haystack.includes(search)) return false;
         }
 
         return true;
     });
 
+    // Mise à jour de l'affichage
+    renderCards(filteredCards, cardsGrid, true);
     cardsCountSpan.textContent = `${filteredCards.length} carte(s)`;
     cardsTitle.textContent = faction ? `Faction : ${faction}` : "Toutes les cartes";
-
-    renderCards(filteredCards, cardsGrid, true);
 }
 
 
