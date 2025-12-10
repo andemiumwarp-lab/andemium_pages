@@ -217,6 +217,35 @@
     "keywords": ["Spawner", "Durant le tour de votre adversaire"],
     "effect": "Une fois par tour , pendant le tour de votre adversaire. Activer cette carte depuis votre main. Placez une carte “escouade” depuis votre deck sur le terrain",
     "image": "images/ultramarines/module.png"
-  }
+  },
 
+  {
+    "id": "ultima_fondation",
+    "name": "Ultima Fondation",
+    "faction": "Ultramarine",
+    "type": "Capacité",
+    "keywords": ["Se déplace et attaque"],
+    "effect": "A la fin de votre tour, vous pouvez changez de ligne deux cartes",
+    "image": "images/ultramarines/fondation.png"
+  },
+  
+  {
+    "id": "bombardement_stratégique",
+    "name": "Bombardement stratégique",
+    "faction": "Ultramarine",
+    "type": "Capacité",
+    "keywords": ["Se déplace et attaque", "Dégâts"],
+    "effect": "Inflige 1 dégât sur toute une ligne. Pour chaque carte détruite, vous pouvez changer de ligne une “escouade” et elle pourra attaquer ce tour-ci",
+    "image": "images/ultramarines/bombardement.png"
+  },
+
+  {
+    "id": "bannière_des_héros",
+    "name": "Bannière des héros",
+    "faction": "Ultramarine",
+    "type": "Capacité",
+    "keywords": ["Armure"],
+    "effect": "Ciblez deux cartes “élite” et/ou “escouade”, elles gagnent 2 d’armures pendant 1 tour",
+    "image": "images/ultramarines/banière.png"
+  }
 ]
