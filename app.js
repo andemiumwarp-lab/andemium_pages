@@ -179,9 +179,16 @@ function renderCards(list, container, showAddButton = false) {
         factionTag.textContent = card.faction;
         imgDiv.appendChild(factionTag);
 
-        // Corps
-        const bodyDiv = document.createElement("div");
-        bodyDiv.className = "card-body";
+        // Statistiques
+        const statsDiv = document.createElement("div");
+        statsDiv.className = "card-stats";
+        statsDiv.innerHTML = `
+            <div>Portée : ${card.range ?? "-"}</div>
+            <div>Dégâts distance : ${card.ranged ?? "-"}</div>
+            <div>Mêlée : ${card.melee ?? "-"}</div>
+            <div>PV : ${card.hp ?? "-"}</div>
+        `;
+        bodyDiv.appendChild(statsDiv);
 
         const titleRow = document.createElement("div");
         titleRow.className = "card-title-row";

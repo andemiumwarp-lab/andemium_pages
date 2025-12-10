@@ -240,6 +240,19 @@ main {
     color: #9ca3af;
 }
 
+.card-stats {
+    font-size: 0.75rem;
+    color: #e5e7eb;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2px 8px;
+    margin-top: 6px;
+    padding: 4px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 6px;
+}
+
+
 .card-keywords {
     font-size: 0.7rem;
     color: #a5b4fc;
