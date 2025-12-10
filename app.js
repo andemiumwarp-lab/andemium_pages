@@ -222,13 +222,39 @@ function generateFactionButtons() {
 //   DECK
 // ========================
 function addToDeck(cardId) {
+    const card = allCards.find(c => c.id === cardId);
+    if (!card) return;
+
+    // Définition des limites
+    let maxCopies = 3; // limite par défaut
+
+    // Si la carte a une limite explicite dans le JSON
+    if (card.limit !== undefined) {
+        maxCopies = card.limit;
+    }
+
+    // Si la carte est un héros légendaire → limite 1
+    // (fonctionne même si limit n'est pas défini)
+    if (card.type && card.type.toLowerCase().includes("héros légendaire")) {
+        maxCopies = 1;
+    }
+
+    // Vérifie si on a atteint la limite
     if (!deck[cardId]) {
         deck[cardId] = 0;
     }
+
+    if (deck[cardId] >= maxCopies) {
+        alert(`Vous ne pouvez pas ajouter plus de ${maxCopies} exemplaire(s) de cette carte.`);
+        return;
+    }
+
+    // Ajout dans le deck
     deck[cardId] += 1;
     saveDeckToStorage();
     renderDeck();
 }
+
 
 function removeFromDeck(cardId) {
     if (!deck[cardId]) return;
