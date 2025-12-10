@@ -35,7 +35,6 @@ document.addEventListener("DOMContentLoaded", () => {
     loadDeckFromStorage();
     loadCards();
 
-    // Filtres
     [filterFaction, filterType].forEach(el =>
         el.addEventListener("change", applyFilters)
     );
@@ -43,7 +42,6 @@ document.addEventListener("DOMContentLoaded", () => {
         el.addEventListener("input", applyFilters)
     );
 
-    // Deck actions
     btnClearDeck.addEventListener("click", clearDeck);
     btnExportDeck.addEventListener("click", exportDeck);
     importDeckFile.addEventListener("change", importDeckFromFile);
@@ -82,7 +80,7 @@ function initFiltersFromCards() {
         const opt = document.createElement("option");
         opt.value = t;
         opt.textContent = t;
-        filterType.appendChild(opt);
+        filterType.append.appendChild(opt);
     });
 
     factionPagesContainer.innerHTML = "";
@@ -159,12 +157,11 @@ function renderCards(list, container, showAdd = false) {
         const div = document.createElement("div");
         div.className = "card";
 
-        // Image
+        // IMAGE
         const img = document.createElement("div");
         img.className = "card-image";
-        if (card.image) {
-            img.style.backgroundImage = `url('${card.image}')`;
-        } else {
+        if (card.image) img.style.backgroundImage = `url('${card.image}')`;
+        else {
             img.classList.add("fallback");
             img.textContent = "Pas d'image";
         }
@@ -174,7 +171,7 @@ function renderCards(list, container, showAdd = false) {
         tag.textContent = card.faction;
         img.appendChild(tag);
 
-        // Corps
+        // BODY
         const body = document.createElement("div");
         body.className = "card-body";
 
@@ -189,7 +186,7 @@ function renderCards(list, container, showAdd = false) {
             <div class="card-effect">${card.effect || ""}</div>
         `;
 
-        // Stats
+        // STATS
         const stats = document.createElement("div");
         stats.className = "card-stats";
         stats.innerHTML = `
@@ -200,11 +197,14 @@ function renderCards(list, container, showAdd = false) {
         `;
         body.appendChild(stats);
 
+        // FOOTER
         const footer = document.createElement("div");
         footer.className = "card-footer";
 
-        const maxCopies = getCardLimit(card);
-        footer.innerHTML = `<div class="card-limit">Limite : ${maxCopies}</div>`;
+        const limitDiv = document.createElement("div");
+        limitDiv.className = "card-limit";
+        limitDiv.textContent = `Limite : ${getCardLimit(card)}`;
+        footer.appendChild(limitDiv);
 
         if (showAdd) {
             const btn = document.createElement("button");
@@ -215,22 +215,20 @@ function renderCards(list, container, showAdd = false) {
         }
 
         body.appendChild(footer);
+
         div.appendChild(img);
         div.appendChild(body);
+
         container.appendChild(div);
     });
 }
 
 /* ============================================================
-   LIMITES DE COPIES
+   LIMITES CARTE
 ============================================================ */
 function getCardLimit(card) {
-    if (card.type && card.type.toLowerCase().includes("héros légendaire")) {
-        return 1;
-    }
-    if (card.limit !== undefined) {
-        return card.limit;
-    }
+    if (card.type && card.type.toLowerCase().includes("héros légendaire")) return 1;
+    if (card.limit !== undefined) return card.limit;
     return 3;
 }
 
@@ -250,24 +248,24 @@ function addToDeck(cardId) {
     }
 
     deck[cardId]++;
-    saveDeckToStorage();
+    saveDeckFromStorage();
     renderDeck();
 }
 
 function removeFromDeck(cardId) {
     if (!deck[cardId]) return;
-    deck[cardId]--;
 
+    deck[cardId]--;
     if (deck[cardId] <= 0) delete deck[cardId];
 
-    saveDeckToStorage();
+    saveDeckFromStorage();
     renderDeck();
 }
 
 function clearDeck() {
     if (confirm("Vider le deck ?")) {
         deck = {};
-        saveDeckToStorage();
+        saveDeckFromStorage();
         renderDeck();
     }
 }
@@ -298,7 +296,7 @@ function renderDeck() {
         li.appendChild(btn);
         deckList.appendChild(li);
 
-        // Vue deck grande
+        // Carte visuelle dans l'onglet DECK
         for (let i = 0; i < count; i++) {
             deckCardGrid.appendChild(createDeckCard(card));
         }
@@ -310,6 +308,7 @@ function renderDeck() {
 function createDeckCard(card) {
     const div = document.createElement("div");
     div.className = "card";
+
     div.innerHTML = `
         <div class="card-image" style="background-image:url('${card.image}')"></div>
         <div class="card-body">
@@ -329,7 +328,7 @@ function createDeckCard(card) {
 /* ============================================================
    LOCALSTORAGE
 ============================================================ */
-function saveDeckToStorage() {
+function saveDeckFromStorage() {
     localStorage.setItem("aow_deck", JSON.stringify(deck));
 }
 
@@ -363,7 +362,7 @@ function importDeckFromFile(event) {
     reader.onload = e => {
         try {
             deck = JSON.parse(e.target.result);
-            saveDeckToStorage();
+            saveDeckFromStorage();
             renderDeck();
         } catch {
             alert("Erreur : fichier deck invalide.");
