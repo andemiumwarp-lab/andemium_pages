@@ -68,7 +68,7 @@
     "keywords": ["Ignore condition d'attaque"],
     "effect": "Lorsque cette carte effectue une attaque au corps à corps, elle peut cibler une carte située hors de sa portée de corps à corps.",
     "image": "images/reiver.png"
-  }
+  },
   {
     "id": "escouade_terminator",
     "name": "Escouade Terminator",
