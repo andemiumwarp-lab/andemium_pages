@@ -6,19 +6,21 @@
     "type": "Héros légendaire",
     "cost": 0,
     "keywords": ["Peste", "Combo"],
-    "effect": "Si cette carte est dans votre main, piochez une carte dont le nom contient Tamurkhan. Vous pouvez l’invoquer gratuitement en retirant du jeu, depuis votre cimetière, entre une et trois cartes à 0 sacrifice. Appliquez un nombre de points de Peste égal au nombre de cartes retirées.Lorsque cette carte est utilisée comme sacrifice, elle retourne dans votre deck..",
+    "effect": "Si cette carte est dans votre main, piochez une carte dont le nom contient « Tamurkhan ». Vous pouvez l’invoquer gratuitement en retirant du jeu, depuis votre cimetière, entre une et trois cartes à 0 sacrifice. Appliquez un nombre de points de Peste égal au nombre de cartes retirées. Lorsque cette carte est utilisée comme sacrifice, elle retourne dans votre deck.",
     "image": "images/Tamurkhan_le_ver_parasite.png"
   },
+
   {
     "id": "scouts",
     "name": "Scouts",
     "faction": "Ultramarine",
     "type": "Escouade",
     "cost": 0,
-    "keywords": ["Effet à la destrcution", "Revient sur le terrain"],
-    "effect": "Une fois par tour, lorsque cette carte est détruite, placez une autre carte 'Scouts' de votre deck sur la même ligne.",
+    "keywords": ["Effet à la destruction", "Revient sur le terrain"],
+    "effect": "Une fois par tour, lorsque cette carte est détruite, placez une autre carte « Scouts » de votre deck sur la même ligne.",
     "image": "images/scout.png"
   },
+
   {
     "id": "intercessors",
     "name": "Intercessors",
@@ -26,20 +28,22 @@
     "type": "Escouade",
     "cost": 0,
     "keywords": ["Effet à l'invocation", "Permet de piocher"],
-    "effect": "Lorsque cette carte est invoquée, piochez une carte “Escouade” de votre deck.",
+    "effect": "Lorsque cette carte est invoquée, piochez une carte « Escouade » de votre deck.",
     "image": "images/intercessors.png"
   },
+
   {
-    "id": "escouade_d’assaut",
+    "id": "escouade_assaut",
     "name": "Escouade d’assaut",
     "faction": "Ultramarine",
     "type": "Escouade",
     "cost": 0,
-    "keywords": ["Frappe et se déplace"],
+    "keywords": ["Se déplace et attaque"],
     "effect": "Cette carte peut se déplacer sur un nouveau front et attaquer dans le même tour.",
     "image": "images/escouade_assaut.png"
   },
-    {
+
+  {
     "id": "vanguard_suppressor",
     "name": "Vanguard Suppressor",
     "faction": "Ultramarine",
@@ -49,6 +53,7 @@
     "effect": "Lorsque cette carte subit des dégâts lors du tour de votre adversaire, piochez une carte.",
     "image": "images/suppressor.png"
   },
+
   {
     "id": "devastator",
     "name": "Devastator",
@@ -56,19 +61,21 @@
     "type": "Escouade",
     "cost": 0,
     "keywords": ["Se buff"],
-    "effect": "Lorsque cette carte cible une carte véhicule ou héros, elle obtient +2 dégâts en tir.",
+    "effect": "Lorsque cette carte cible un véhicule ou un héros, elle obtient +2 dégâts en tir.",
     "image": "images/devastator.png"
   },
+
   {
     "id": "escouade_reiver",
     "name": "Escouade Reiver",
     "faction": "Ultramarine",
     "type": "Escouade",
     "cost": 0,
-    "keywords": ["Ignore condition d'attaque"],
-    "effect": "Lorsque cette carte effectue une attaque au corps à corps, elle peut cibler une carte située hors de sa portée de corps à corps.",
+    "keywords": ["Ignore les restrictions d'attaque"],
+    "effect": "Lorsque cette carte effectue une attaque au corps à corps, elle peut cibler une carte située hors de sa portée.",
     "image": "images/reiver.png"
   },
+
   {
     "id": "escouade_terminator",
     "name": "Escouade Terminator",
@@ -76,7 +83,7 @@
     "type": "Elite",
     "cost": 1,
     "keywords": ["Tank", "Se buff"],
-    "effect": "tant que cette carte est sur le terrain, les cartes “escouades” autour gagnent 1 point d’armure.",
+    "effect": "Tant que cette carte est sur le terrain, les cartes « Escouade » autour gagnent 1 point d’armure.",
     "image": "images/terminator.png"
   }
 ]
