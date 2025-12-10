@@ -246,7 +246,7 @@
     "type": "Capacité",
     "keywords": ["Armure"],
     "effect": "Ciblez deux cartes “élite” et/ou “escouade”, elles gagnent 2 d’armures pendant 1 tour",
-    "image": "images/ultramarines/banière.png"
+    "image": "images/ultramarines/bannière.png"
   },
   {
     "id": "tactique_tir",
