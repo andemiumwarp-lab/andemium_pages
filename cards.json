@@ -11,7 +11,7 @@
     "hp": 6,
     "keywords": ["Peste", "Combo"],
     "effect": "Si cette carte est dans votre main, piochez une carte dont le nom contient « Tamurkhan ». Vous pouvez l’invoquer gratuitement en retirant du jeu, depuis votre cimetière, entre une et trois cartes à 0 sacrifice. Appliquez un nombre de points de Peste égal au nombre de cartes retirées. Lorsque cette carte est utilisée comme sacrifice, elle retourne dans votre deck.",
-    "image": "images/Tamurkhan_le_ver_parasite.png"
+    "image": "images/ultramarines/Tamurkhan_le_ver_parasite.png"
   },
 
   {
@@ -26,7 +26,7 @@
     "hp": 1,
     "keywords": ["Effet à la destruction", "Revient sur le terrain"],
     "effect": "Une fois par tour, lorsque cette carte est détruite, placez une autre carte « Scouts » de votre deck sur la même ligne.",
-    "image": "images/scout.png"
+    "image": "images/ultramarines/scout.png"
   },
 
   {
@@ -41,7 +41,7 @@
     "hp": 2,
     "keywords": ["Effet à l'invocation", "Permet de piocher"],
     "effect": "Lorsque cette carte est invoquée, piochez une carte « Escouade » de votre deck.",
-    "image": "images/intercessors.png"
+    "image": "images/ultramarines/intercessors.png"
   },
 
   {
@@ -56,7 +56,7 @@
     "hp": 2,
     "keywords": ["Se déplace et attaque"],
     "effect": "Cette carte peut se déplacer sur un nouveau front et attaquer dans le même tour.",
-    "image": "images/escouade_assaut.png"
+    "image": "images/ultramarines/escouade_assaut.png"
   },
 
   {
@@ -71,7 +71,7 @@
     "hp": 3,
     "keywords": ["Permet de piocher"],
     "effect": "Lorsque cette carte subit des dégâts lors du tour de votre adversaire, piochez une carte.",
-    "image": "images/suppressor.png"
+    "image": "images/ultramarines/suppressor.png"
   },
 
   {
@@ -86,7 +86,7 @@
     "hp": 2,
     "keywords": ["Se buff"],
     "effect": "Lorsque cette carte cible un véhicule ou un héros, elle obtient +2 dégâts en tir.",
-    "image": "images/devastator.png"
+    "image": "images/ultramarines/devastator.png"
   },
 
   {
@@ -101,7 +101,7 @@
     "hp": 2,
     "keywords": ["Ignore les restrictions d'attaque"],
     "effect": "Lorsque cette carte effectue une attaque au corps à corps, elle peut cibler une carte située hors de sa portée.",
-    "image": "images/reiver.png"
+    "image": "images/ultramarines/reiver.png"
   },
 
   {
@@ -116,7 +116,7 @@
     "hp": 5,
     "keywords": ["Tank", "Se buff"],
     "effect": "Tant que cette carte est sur le terrain, les cartes « Escouade » autour gagnent 1 point d’armure.",
-    "image": "images/terminator.png"
+    "image": "images/ultramarines/terminator.png"
   },
 
   {
@@ -131,6 +131,52 @@
     "hp": 3,
     "keywords": ["Inflige des dégâts", "Negate"],
     "effect": "Lorsque cette carte est invoquée, infligez 2 dégâts à une cible, si elle est détruite, vous pouvez infligé 2 dégâts supplémentaire. une fois par tour, vous pouvez annuler l’effet d’une unité adverse.",
-    "image": "images/librarian.png"
+    "image": "images/ultramarines/librarian.png"
+  },
+
+  {
+    "id": "lieutenant_titus",
+    "name": "Lieutenant Titus",
+    "faction": "Ultramarine",
+    "type": "Elite",
+    "cost": 1,
+    "range": 1,
+    "ranged": 1,
+    "melee": 4,
+    "hp": 4,
+    "keywords": ["Inflige des dégâts", "Effet en mourant"],
+    "effect": "Lorsque cette carte est détruite au corps à corps, elle peut effectuer une dernière attaque avant d’être envoyée au cimetière, même si elle a déjà contre-attaqué ce tour-ci.",
+    "image": "images/ultramarines/lieutenant_titus.png"
+  },
+
+  {
+    "id": "véteran",
+    "name": "Vétéran",
+    "faction": "Ultramarine",
+    "type": "Elite",
+    "cost": 1,
+    "range": 1,
+    "ranged": 1,
+    "melee": 3,
+    "hp": 3,
+    "keywords": ["Buff"],
+    "effect": "Cette carte donne +1 cac à toute les cartes sur la même ligne.",
+    "image": "images/ultramarines/veteran.png"
+  },
+
+  {
+    "id": "roboute_gulliman",
+    "name": "Roboute Gulliman",
+    "faction": "Ultramarine",
+    "type": "Héros légendaire",
+    "cost": 2,
+    "range": 2,
+    "ranged": 3,
+    "melee": 4,
+    "hp": 6,
+    "keywords": ["Buff", "Boss", "Se déplace et attaque"],
+    "effect": "Tant que cette carte est en jeu, vos cartes gagnent +1 PV ainsi que +1 en dégâts de tir et de corps à corps pour chaque paire de cartes sur votre terrain (une en ligne de combat et une en ligne de tir). Une fois par tour, vous pouvez changer de front deux cartes “elite” ou/et “escouade” et elle peuvent attaquer malgré cela. ",
+    "image": "images/ultramarines/roboute_gulliman.png"
   }
+
 ]
