@@ -18,5 +18,15 @@
     "keywords": ["Peste", "Combo", "Tamurkhan"],
     "effect": "test",
     "image": ""
+  },
+  {
+    "id": "TEST",
+    "name": "TEST",
+    "faction": "Nurgle",
+    "type": "TEST",
+    "cost": 0,
+    "keywords": ["TEST", "TEST", "TEST"],
+    "effect": "TEST",
+    "image": "TEST"
   }
 ]
