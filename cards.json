@@ -85,5 +85,16 @@
     "keywords": ["Tank", "Se buff"],
     "effect": "Tant que cette carte est sur le terrain, les cartes « Escouade » autour gagnent 1 point d’armure.",
     "image": "images/terminator.png"
+  },
+
+  {
+    "id": "librarian",
+    "name": "Librarian",
+    "faction": "Ultramarine",
+    "type": "Elite",
+    "cost": 1,
+    "keywords": ["Inflige des dégâts", "Negate"],
+    "effect": "Lorsque cette carte est invoquée, infligez 2 dégâts à une cible, si elle est détruite, vous pouvez infligé 2 dégâts supplémentaire. une fois par tour, vous pouvez annuler l’effet d’une unité adverse.",
+    "image": "images/librarian.png"
   }
 ]
