@@ -191,7 +191,7 @@ function renderCards(list, container, showAdd = false) {
         stats.className = "card-stats";
         stats.innerHTML = `
             <div>Portée : ${card.range ?? "-"}</div>
-            <div>Distance : ${card.ranged ?? "-"}</div>
+            <div>Dégâts distance : ${card.ranged ?? "-"}</div>
             <div>Mêlée : ${card.melee ?? "-"}</div>
             <div>PV : ${card.hp ?? "-"}</div>
         `;
@@ -316,7 +316,7 @@ function createDeckCard(card) {
             <div class="card-type">${card.type}</div>
             <div class="card-stats">
                 <div>Portée : ${card.range ?? "-"}</div>
-                <div>Distance : ${card.ranged ?? "-"}</div>
+                <div>Dégâts distance : ${card.ranged ?? "-"}</div>
                 <div>Mêlée : ${card.melee ?? "-"}</div>
                 <div>PV : ${card.hp ?? "-"}</div>
             </div>
