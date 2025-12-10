@@ -38,5 +38,15 @@
     "keywords": ["Frappe et se déplace"],
     "effect": "Cette carte peut se déplacer sur un nouveau front et attaquer dans le même tour.",
     "image": "images/escouade_assaut.png"
+  },
+    {
+    "id": "vanguard_suppressor ",
+    "name": "Vanguard Suppressor ",
+    "faction": "Ultramarine",
+    "type": "Escouade",
+    "cost": 0,
+    "keywords": ["Permet de piocher"],
+    "effect": "Lorsque cette carte subit des dégâts lors du tour de votre adversaire, piochez une carte.",
+    "image": "images/suppressor.png"
   }
 ]
