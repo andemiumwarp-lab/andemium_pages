@@ -13,6 +13,7 @@ const deckList = document.getElementById("deckList");
 const deckCountSpan = document.getElementById("deckCount");
 const cardsCountSpan = document.getElementById("cardsCount");
 const cardsTitle = document.getElementById("cardsTitle");
+const btnResetFilters = document.getElementById("btnResetFilters");
 
 const filterFaction = document.getElementById("filterFaction");
 const filterType = document.getElementById("filterType");
@@ -34,7 +35,7 @@ const deckCardGrid = document.getElementById("deckCardGrid");
 document.addEventListener("DOMContentLoaded", () => {
     loadDeckFromStorage();
     loadCards();
-
+    btnResetFilters.addEventListener("click", resetFilters);
     [filterFaction, filterType].forEach(el =>
         el.addEventListener("change", applyFilters)
     );
@@ -407,4 +408,25 @@ function setupTabs() {
             if (tab === "deck") renderDeck();
         });
     });
+}
+
+/* ============================================================
+   Reset Filtres
+============================================================ */
+
+function resetFilters() {
+    filterFaction.value = "";
+    filterType.value = "";
+    filterCost.value = "";
+    filterSearch.value = "";
+
+    // Réinitialiser le titre
+    cardsTitle.textContent = "Toutes les cartes";
+
+    // Désélectionner les boutons de faction
+    factionPagesContainer.querySelectorAll("button").forEach(
+        btn => btn.classList.remove("active")
+    );
+
+    applyFilters();
 }

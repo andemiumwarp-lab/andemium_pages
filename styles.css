@@ -18,6 +18,21 @@ body {
     border-bottom: 1px solid #333;
 }
 
+.reset-filters {
+    margin-top: 10px;
+    width: 100%;
+    padding: 8px;
+    background: #444;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+.reset-filters:hover {
+    background: #666;
+}
+
+
 .logo {
     font-weight: 700;
     font-size: 1.2rem;
