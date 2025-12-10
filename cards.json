@@ -11,12 +11,12 @@
   },
   {
     "id": "kayzk_le_souille",
-    "name": "kayzk le souillé",
+    "name": "Kayzk le souillé",
     "faction": "Nurgle",
     "type": "Héros",
     "cost": 1,
     "keywords": ["Peste", "Combo", "Tamurkhan"],
-    "effect": "",
-    "image": "images/"
+    "effect": "test",
+    "image": ""
   }
 ]
