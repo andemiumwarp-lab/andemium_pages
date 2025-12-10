@@ -40,8 +40,8 @@
     "image": "images/escouade_assaut.png"
   },
     {
-    "id": "vanguard_suppressor ",
-    "name": "Vanguard Suppressor ",
+    "id": "vanguard_suppressor",
+    "name": "Vanguard Suppressor",
     "faction": "Ultramarine",
     "type": "Escouade",
     "cost": 0,
