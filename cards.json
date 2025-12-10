@@ -9,4 +9,14 @@
     "effect": "Si cette carte est dans votre main, piochez une carte dont le nom contient Tamurkhan. Vous pouvez l’invoquer gratuitement en retirant du jeu, depuis votre cimetière, entre une et trois cartes à 0 sacrifice. Appliquez un nombre de points de Peste égal au nombre de cartes retirées.Lorsque cette carte est utilisée comme sacrifice, elle retourne dans votre deck..",
     "image": "images/Tamurkhan_le_ver_parasite.png"
   }
+  {
+    "id": "kayzk_le_souille",
+    "name": "kayzk le souillé",
+    "faction": "Nurgle",
+    "type": "Héros",
+    "cost": 1,
+    "keywords": ["Peste", "Combo", "Tamurkhan"],
+    "effect": "",
+    "image": "images/"
+  }
 ]
