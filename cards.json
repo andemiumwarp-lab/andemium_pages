@@ -17,7 +17,7 @@
     "cost": 0,
     "keywords": ["Effet à la destrcution", "Revient sur le terrain"],
     "effect": "Une fois par tour, lorsque cette carte est détruite, placez une autre carte 'Scouts' de votre deck sur la même ligne.",
-    "image": "/images/scout.png"
+    "image": "images/scout.png"
   },
   {
     "id": "intercessors",
@@ -27,6 +27,6 @@
     "cost": 0,
     "keywords": ["Effet à l'invocation", "Permet de piocher"],
     "effect": "Lorsque cette carte est invoquée, piochez une carte “escouade” de votre deck.",
-    "image": "/images/intercessors.png"
+    "image": "images/intercessors.png"
   }
 ]
