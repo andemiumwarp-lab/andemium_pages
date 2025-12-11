@@ -358,11 +358,9 @@ function createDeckCard(card) {
 /* ============================================================
    LOCALSTORAGE
 ============================================================ */
-    const raw = localStorage.getItem("aow_deck");
-    if (raw) deck = JSON.parse(raw);
-
-    const savedFaction = localStorage.getItem("aow_deck_faction");
-    deckFaction = savedFaction ? savedFaction : null;
+function saveDeckFromStorage() {
+    localStorage.setItem("aow_deck", JSON.stringify(deck));
+}
 
 function loadDeckFromStorage() {
     const raw = localStorage.getItem("aow_deck");
