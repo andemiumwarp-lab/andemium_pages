@@ -3,8 +3,9 @@
 ============================================================ */
 let allCards = [];
 let filteredCards = [];
-let deck = {}; // { cardId: count }
-let deckFaction = null;
+let deck = {};            // cardId: count
+let deckFaction = null;   // faction unique du deck
+
 /* ============================================================
    RÉFÉRENCES DOM
 ============================================================ */
@@ -13,21 +14,19 @@ const deckList = document.getElementById("deckList");
 const deckCountSpan = document.getElementById("deckCount");
 const cardsCountSpan = document.getElementById("cardsCount");
 const cardsTitle = document.getElementById("cardsTitle");
-const btnResetFilters = document.getElementById("btnResetFilters");
 
 const filterFaction = document.getElementById("filterFaction");
 const filterType = document.getElementById("filterType");
 const filterCost = document.getElementById("filterCost");
 const filterSearch = document.getElementById("filterSearch");
-
+const btnResetFilters = document.getElementById("btnResetFilters");
 
 const factionPagesContainer = document.getElementById("factionPages");
+const deckCardGrid = document.getElementById("deckCardGrid");
 
 const btnClearDeck = document.getElementById("btnClearDeck");
 const btnExportDeck = document.getElementById("btnExportDeck");
 const importDeckFile = document.getElementById("importDeckFile");
-
-const deckCardGrid = document.getElementById("deckCardGrid");
 
 /* ============================================================
    INITIALISATION
@@ -36,24 +35,21 @@ document.addEventListener("DOMContentLoaded", () => {
     loadDeckFromStorage();
     loadCards();
 
-    // Rafraîchit sur TOUT changement des filtres
+    // Filtres
     [filterFaction, filterType, filterCost].forEach(el =>
         el.addEventListener("change", applyFilters)
     );
-
-    // Rafraîchissement en tapant du texte (mise à jour à CHAQUE lettre)
     filterSearch.addEventListener("input", applyFilters);
 
-    // Bouton reset si présent
+    // Reset filtres
     if (btnResetFilters) {
-        btnResetFilters.addEventListener("click", () => {
-            filterFaction.value = "";
-            filterType.value = "";
-            filterCost.value = "";
-            filterSearch.value = "";
-            applyFilters();
-        });
+        btnResetFilters.addEventListener("click", resetFilters);
     }
+
+    // Deck actions
+    btnClearDeck.addEventListener("click", clearDeck);
+    btnExportDeck.addEventListener("click", exportDeck);
+    importDeckFile.addEventListener("change", importDeckFromFile);
 
     setupTabs();
 });
@@ -71,7 +67,7 @@ async function loadCards() {
 }
 
 /* ============================================================
-   INIT FILTRES
+   INIT FILTRES DYNAMIQUES
 ============================================================ */
 function initFiltersFromCards() {
     const factions = [...new Set(allCards.map(c => c.faction))].sort();
@@ -99,10 +95,8 @@ function initFiltersFromCards() {
         btn.addEventListener("click", () => {
             filterFaction.value = f;
             filterType.value = "";
-            filterCostMin.value = "";
-            filterCostMax.value = "";
+            filterCost.value = "";
             filterSearch.value = "";
-            cardsTitle.textContent = `Faction : ${f}`;
 
             factionPagesContainer.querySelectorAll("button")
                 .forEach(b => b.classList.remove("active"));
@@ -115,7 +109,7 @@ function initFiltersFromCards() {
 }
 
 /* ============================================================
-   FILTRAGE
+   FILTRAGE PRINCIPAL
 ============================================================ */
 function applyFilters() {
     const faction = filterFaction.value;
@@ -129,10 +123,10 @@ function applyFilters() {
 
         // Filtre coût
         if (costFilter !== "") {
-            const cost = Number(card.cost);
+            const c = Number(card.cost);
             if (costFilter === "other") {
-                if (cost === 0 || cost === 1 || cost === 2) return false;
-            } else if (cost !== Number(costFilter)) {
+                if (c === 0 || c === 1 || c === 2) return false;
+            } else if (c !== Number(costFilter)) {
                 return false;
             }
         }
@@ -146,18 +140,35 @@ function applyFilters() {
                 card.type,
                 card.faction
             ].join(" ").toLowerCase();
+
             if (!haystack.includes(search)) return false;
         }
 
         return true;
     });
 
-    // Mise à jour de l'affichage
-    renderCards(filteredCards, cardsGrid, true);
     cardsCountSpan.textContent = `${filteredCards.length} carte(s)`;
     cardsTitle.textContent = faction ? `Faction : ${faction}` : "Toutes les cartes";
+
+    renderCards(filteredCards, cardsGrid, true);
 }
 
+/* ============================================================
+   BOUTON RÉINITIALISER LES FILTRES
+============================================================ */
+function resetFilters() {
+    filterFaction.value = "";
+    filterType.value = "";
+    filterCost.value = "";
+    filterSearch.value = "";
+
+    factionPagesContainer.querySelectorAll("button")
+        .forEach(btn => btn.classList.remove("active"));
+
+    cardsTitle.textContent = "Toutes les cartes";
+
+    applyFilters();
+}
 
 /* ============================================================
    RENDU DES CARTES
@@ -171,17 +182,13 @@ function renderCards(list, container, showAdd = false) {
     }
 
     list.forEach(card => {
-        const div = document.createElement("div");
-        div.className = "card";
+        const cardDiv = document.createElement("div");
+        cardDiv.className = "card";
 
         // IMAGE
         const img = document.createElement("div");
         img.className = "card-image";
-        if (card.image) img.style.backgroundImage = `url('${card.image}')`;
-        else {
-            img.classList.add("fallback");
-            img.textContent = "Pas d'image";
-        }
+        img.style.backgroundImage = card.image ? `url('${card.image}')` : "none";
 
         const tag = document.createElement("div");
         tag.className = "card-faction-tag";
@@ -208,7 +215,7 @@ function renderCards(list, container, showAdd = false) {
         stats.className = "card-stats";
         stats.innerHTML = `
             <div>Portée : ${card.range ?? "-"}</div>
-            <div>Dégâts distance : ${card.ranged ?? "-"}</div>
+            <div>Distance : ${card.ranged ?? "-"}</div>
             <div>Mêlée : ${card.melee ?? "-"}</div>
             <div>PV : ${card.hp ?? "-"}</div>
         `;
@@ -218,10 +225,7 @@ function renderCards(list, container, showAdd = false) {
         const footer = document.createElement("div");
         footer.className = "card-footer";
 
-        const limitDiv = document.createElement("div");
-        limitDiv.className = "card-limit";
-        limitDiv.textContent = `Limite : ${getCardLimit(card)}`;
-        footer.appendChild(limitDiv);
+        footer.innerHTML = `<div class="card-limit">Limite : ${getCardLimit(card)}</div>`;
 
         if (showAdd) {
             const btn = document.createElement("button");
@@ -233,15 +237,15 @@ function renderCards(list, container, showAdd = false) {
 
         body.appendChild(footer);
 
-        div.appendChild(img);
-        div.appendChild(body);
+        cardDiv.appendChild(img);
+        cardDiv.appendChild(body);
 
-        container.appendChild(div);
+        container.appendChild(cardDiv);
     });
 }
 
 /* ============================================================
-   LIMITES CARTE
+   LIMITES DE CARTES
 ============================================================ */
 function getCardLimit(card) {
     if (card.type && card.type.toLowerCase().includes("héros légendaire")) return 1;
@@ -250,27 +254,26 @@ function getCardLimit(card) {
 }
 
 /* ============================================================
-   DECK
+   AJOUT / SUPPRESSION DANS LE DECK
 ============================================================ */
 function addToDeck(cardId) {
     const card = allCards.find(c => c.id === cardId);
     if (!card) return;
 
-    // --- Vérification faction unique ---
+    // MONO FACTION
     if (deckFaction === null) {
-        // première carte → on définit la faction du deck
         deckFaction = card.faction;
     } else if (deckFaction !== card.faction) {
-        alert(`Votre deck est ${deckFaction}. Vous ne pouvez pas ajouter une carte ${card.faction}.`);
+        alert(`Votre deck est ${deckFaction}. Impossible d'ajouter une carte ${card.faction}.`);
         return;
     }
 
-    // --- Vérification limites ---
+    // Limite copies
     const max = getCardLimit(card);
     if (!deck[cardId]) deck[cardId] = 0;
 
     if (deck[cardId] >= max) {
-        alert(`Vous ne pouvez pas ajouter plus de ${max} exemplaire(s) de "${card.name}".`);
+        alert(`Limite atteinte (${max}) pour "${card.name}".`);
         return;
     }
 
@@ -279,27 +282,28 @@ function addToDeck(cardId) {
     renderDeck();
 }
 
-
 function removeFromDeck(cardId) {
     if (!deck[cardId]) return;
 
     deck[cardId]--;
     if (deck[cardId] <= 0) delete deck[cardId];
 
-    saveDeckFromStorage();
+    saveDeckToStorage();
     renderDeck();
 }
 
 function clearDeck() {
-    if (confirm("Vider le deck ?")) {
+    if (confirm("Vider totalement le deck ?")) {
         deck = {};
-        deckFaction = null; // <-- reset faction
+        deckFaction = null;
         saveDeckToStorage();
         renderDeck();
     }
 }
 
-
+/* ============================================================
+   RENDU DU DECK
+============================================================ */
 function renderDeck() {
     deckList.innerHTML = "";
     deckCardGrid.innerHTML = "";
@@ -326,7 +330,6 @@ function renderDeck() {
         li.appendChild(btn);
         deckList.appendChild(li);
 
-        // Carte visuelle dans l'onglet DECK
         for (let i = 0; i < count; i++) {
             deckCardGrid.appendChild(createDeckCard(card));
         }
@@ -338,7 +341,6 @@ function renderDeck() {
 function createDeckCard(card) {
     const div = document.createElement("div");
     div.className = "card";
-
     div.innerHTML = `
         <div class="card-image" style="background-image:url('${card.image}')"></div>
         <div class="card-body">
@@ -346,7 +348,7 @@ function createDeckCard(card) {
             <div class="card-type">${card.type}</div>
             <div class="card-stats">
                 <div>Portée : ${card.range ?? "-"}</div>
-                <div>Dégâts distance : ${card.ranged ?? "-"}</div>
+                <div>Distance : ${card.ranged ?? "-"}</div>
                 <div>Mêlée : ${card.melee ?? "-"}</div>
                 <div>PV : ${card.hp ?? "-"}</div>
             </div>
@@ -356,24 +358,26 @@ function createDeckCard(card) {
 }
 
 /* ============================================================
-   LOCALSTORAGE
+   SAUVEGARDE LOCALE
 ============================================================ */
-function saveDeckFromStorage() {
+function saveDeckToStorage() {
     localStorage.setItem("aow_deck", JSON.stringify(deck));
+    localStorage.setItem("aow_deck_faction", deckFaction);
 }
 
 function loadDeckFromStorage() {
     const raw = localStorage.getItem("aow_deck");
     if (raw) deck = JSON.parse(raw);
+
+    const savedFaction = localStorage.getItem("aow_deck_faction");
+    deckFaction = savedFaction ? savedFaction : null;
 }
 
 /* ============================================================
-   EXPORT / IMPORT
+   EXPORT / IMPORT DECK
 ============================================================ */
 function exportDeck() {
-    const blob = new Blob([JSON.stringify(deck, null, 2)], {
-        type: "application/json"
-    });
+    const blob = new Blob([JSON.stringify(deck, null, 2)], {type: "application/json"});
     const url = URL.createObjectURL(blob);
 
     const a = document.createElement("a");
@@ -392,7 +396,7 @@ function importDeckFromFile(event) {
     reader.onload = e => {
         try {
             deck = JSON.parse(e.target.result);
-            saveDeckFromStorage();
+            saveDeckToStorage();
             renderDeck();
         } catch {
             alert("Erreur : fichier deck invalide.");
@@ -402,7 +406,7 @@ function importDeckFromFile(event) {
 }
 
 /* ============================================================
-   ONGLET NAVIGATION
+   NAVIGATION ENTRE ONGLET CARTES / DECK
 ============================================================ */
 function setupTabs() {
     const buttons = document.querySelectorAll(".tab-button");
@@ -424,25 +428,4 @@ function setupTabs() {
             if (tab === "deck") renderDeck();
         });
     });
-}
-
-/* ============================================================
-   Reset Filtres
-============================================================ */
-
-function resetFilters() {
-    filterFaction.value = "";
-    filterType.value = "";
-    filterCost.value = "";
-    filterSearch.value = "";
-
-    // Réinitialiser le titre
-    cardsTitle.textContent = "Toutes les cartes";
-
-    // Désélectionner les boutons de faction
-    factionPagesContainer.querySelectorAll("button").forEach(
-        btn => btn.classList.remove("active")
-    );
-
-    applyFilters();
 }
