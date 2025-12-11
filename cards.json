@@ -436,5 +436,61 @@
     "keywords": ["Permet d'invoquer gratuitement"],
     "effect": "Lorsque \"Roboute Guilliman\" est invoqué en sacrifiant des cartes \"Escouade\", vous pouvez activer cette carte (une fois par tour). Si vous le faites, les cartes sacrifiées lors de son invocation restent sur votre terrain au lieu d’être envoyées au cimetière.",
     "image": "images/ultramarines/tacticien_de_genie.png"
+  },
+  {
+    "id": "difformité_de_tzeentch",
+    "name": "Difformité de tzeentch",
+    "faction": "Tzeentch",
+    "type": "Elite",
+    "keywords": ["Permet de piocher"],
+    "cost": 0,
+    "range": 0,
+    "ranged": 0,
+    "melee": 2,
+    "hp": 2,
+    "effect": "Lorsque cette carte détruit une carte adverse , piochez une carte “escouade” depuis votre deck à votre main.",
+    "image": "images/tzeentch/difformité.png"
+  },
+  {
+    "id": "horreur_rose",
+    "name": "Horreur rose",
+    "faction": "Tzeentch",
+    "type": "Escouade",
+    "keywords": ["Effet à l'invocation"],
+    "cost": 0,
+    "range": 1,
+    "ranged": 2,
+    "melee": 1,
+    "hp": 2,
+    "effect": "Lorsque cette carte est détruite (sauf effet de carte), placez une horreur bleue sur le terrain [jeton].",
+    "image": "images/tzeentch/horreur_rose.png"
+  },
+  {
+    "id": "hurleurs",
+    "name": "Hurleurs",
+    "faction": "Tzeentch",
+    "type": "Escouade",
+    "keywords": ["Ignore les restrictions d'attaque"],
+    "cost": 0,
+    "range": 0,
+    "ranged": 0,
+    "melee": 3,
+    "hp": 1,
+    "effect": "Lorsque cette carte effectue une attaque au corps à corps, elle peut cibler une carte située hors de sa portée de corps à corps.",
+    "image": "images/tzeentch/hurleurs.png"
+  },
+  {
+    "id": "mage_tzaangor",
+    "name": "Mage Tzaangor",
+    "faction": "Tzeentch",
+    "type": "Elite",
+    "keywords": ["Mage rang 1", "Permet de piocher"],
+    "cost": 0,
+    "range": 2,
+    "ranged": 1,
+    "melee": 1,
+    "hp": 1,
+    "effect": "Vous pouvez lancer des sorts de rang runique 1. Lorsque cette carte est invoquée, piochez une magie rang runique 1 depuis votre deck. Vous pouvez utiliser une magie par tour",
+    "image": "images/tzeentch/mage_tzaangor.png"
   }
 ]
