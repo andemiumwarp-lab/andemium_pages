@@ -4,7 +4,7 @@
 let allCards = [];
 let filteredCards = [];
 let deck = {}; // { cardId: count }
-console.log(">>> VERSION 3.0 CHARGÉE");
+let deckFaction = null;
 /* ============================================================
    RÉFÉRENCES DOM
 ============================================================ */
@@ -256,6 +256,16 @@ function addToDeck(cardId) {
     const card = allCards.find(c => c.id === cardId);
     if (!card) return;
 
+    // --- Vérification faction unique ---
+    if (deckFaction === null) {
+        // première carte → on définit la faction du deck
+        deckFaction = card.faction;
+    } else if (deckFaction !== card.faction) {
+        alert(`Votre deck est ${deckFaction}. Vous ne pouvez pas ajouter une carte ${card.faction}.`);
+        return;
+    }
+
+    // --- Vérification limites ---
     const max = getCardLimit(card);
     if (!deck[cardId]) deck[cardId] = 0;
 
@@ -265,9 +275,10 @@ function addToDeck(cardId) {
     }
 
     deck[cardId]++;
-    saveDeckFromStorage();
+    saveDeckToStorage();
     renderDeck();
 }
+
 
 function removeFromDeck(cardId) {
     if (!deck[cardId]) return;
@@ -282,10 +293,12 @@ function removeFromDeck(cardId) {
 function clearDeck() {
     if (confirm("Vider le deck ?")) {
         deck = {};
-        saveDeckFromStorage();
+        deckFaction = null; // <-- reset faction
+        saveDeckToStorage();
         renderDeck();
     }
 }
+
 
 function renderDeck() {
     deckList.innerHTML = "";
@@ -345,9 +358,11 @@ function createDeckCard(card) {
 /* ============================================================
    LOCALSTORAGE
 ============================================================ */
-function saveDeckFromStorage() {
-    localStorage.setItem("aow_deck", JSON.stringify(deck));
-}
+    const raw = localStorage.getItem("aow_deck");
+    if (raw) deck = JSON.parse(raw);
+
+    const savedFaction = localStorage.getItem("aow_deck_faction");
+    deckFaction = savedFaction ? savedFaction : null;
 
 function loadDeckFromStorage() {
     const raw = localStorage.getItem("aow_deck");
