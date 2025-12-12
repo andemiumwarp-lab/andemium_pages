@@ -284,7 +284,7 @@
     "range": 1,
     "ranged": 1,
     "melee": 0,
-    "hp": 3,
+    "hp": 4,
     "keywords": ["Tank", "Protection"],
     "effect": "Si cette carte est invoquée sur la ligne de front, sélectionner une autre carte sur la même ligne (hors “véhicule”), elle ne peut pas etre ciblé par des attaques ou capacités tant que cette carte est sur le terrain",
     "image": "images/ultramarines/rhino.png"
@@ -296,7 +296,7 @@
     "type": "Héros légendaire",
     "cost": 0,
     "range": 2,
-    "ranged": 1,
+    "ranged": 2,
     "melee": 1,
     "hp": 3,
     "keywords": ["Buff", "Soigne"],
@@ -366,7 +366,7 @@
     "faction": "Ultramarines",
     "type": "Capacité",
     "keywords": ["Soigne"],
-    "effect": "Placer cette carte sur une de vos lignes. Lorsqu’une carte “véhicule” est placé sur cette ligne, elle regagne à la fin de chacun de vos tours 1 pv",
+    "effect": "Placer cette carte sur une de vos lignes. Lorsqu’une carte “véhicule” est placé sur cette ligne, elle regagne à la fin de chacun de vos tours 2 pv",
     "image": "images/ultramarines/usine_reparation.png"
   },
   {
@@ -534,5 +534,70 @@
     "hp": 3,
     "effect": "Vous pouvez lancer des sorts de rang runique 1. Lorsqu’une carte horreur rose sur votre terrain est détruite (hors sacrifice), vous pouvez invoquer cette carte depuis votre main sur la même ligne. Vous pouvez utiliser une magie par tour",
     "image": "images/tzeentch/les_scribes_bleus.png"
+  },
+  {
+    "id": "rejetons_de_tzeentch",
+    "name": "Rejetons de tzeentch",
+    "faction": "Tzeentch",
+    "type": "Elite",
+    "keywords": ["S'invoque gratuitement"],
+    "cost": 1,
+    "range": 0,
+    "ranged": 0,
+    "melee": 3,
+    "hp": 4,
+    "effect": "Vous pouvez invoquer cette carte depuis votre main gratuitement en retirant du jeu deux cartes “magie” depuis votre cimetière",
+    "image": "images/tzeentch/rejeton.png"
+  },
+  {
+    "id": "incendiaires",
+    "name": "INCENDIAIRES",
+    "faction": "Tzeentch",
+    "type": "Elite",
+    "keywords": ["Contre attaque au tir", "change de ligne"],
+    "cost": 1,
+    "range": 2,
+    "ranged": 4,
+    "melee": 1,
+    "hp": 2,
+    "effect": "Lorsque cette carte est ciblé par une attaque de CAC, elle peut changer de ligne. Cette carte contre-attaque quad elle est la cible d’attaque de tir",
+    "image": "images/tzeentch/incendiaires.png"
+  },
+  {
+    "id": "prince_démon",
+    "name": "Prince démon de tzeentch",
+    "faction": "Tzeentch",
+    "type": "Héros",
+    "keywords": ["Mage rang 1, 2 ou 3", "Inflige des dégâts"],
+    "cost": 2,
+    "range": 2,
+    "ranged": 3,
+    "melee": 3,
+    "hp": 5,
+    "effect": "Vous pouvez lancer des sorts de rang runique 1, 2 ou 3. Lorsque cette carte est invoquée, infligé à votre adversaire ou/et à une de ses lignes un nombre de dégâts équivalent au nombre de magie dans votre cimetière. Vous pouvez utiliser deux magies par tour",
+    "image": "images/tzeentch/prince_démon.png"
+  },
+  {
+    "id": "kairos",
+    "name": "Kairos",
+    "faction": "Tzeentch",
+    "type": "Héros légendaire",
+    "keywords": ["Mage rang 1, 2 ou 3", "Permet de piocher"],
+    "cost": 2,
+    "range": 2,
+    "ranged": 4,
+    "melee": 4,
+    "hp": 6,
+    "effect": "Vous pouvez lancer des sorts de rang runique 1, 2 ou 3. Lorsque cette carte est invoquée, révéler les trois premières cartes de votre deck. Piochez chaque cartes magies révélées et mélanger dans votre deck le reste. Lorsque cette carte est détruite, mélanger depuis votre cimetière deux cartes magies dans votre deck. .Vous pouvez utiliser deux magies par tour",
+    "image": "images/tzeentch/kairos.png"
+  },
+  {
+    "id": "roi_corbeau",
+    "name": "Roi corbeau",
+    "faction": "Tzeentch",
+    "type": "Magie",
+    "keywords": ["Permet de piocher"],
+    "effect": "Piochez une carte “héros” depuis votre deck",
+    "image": "images/tzeentch/roi_corbeau.png"
   }
 ]
