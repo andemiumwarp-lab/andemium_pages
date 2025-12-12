@@ -437,6 +437,7 @@
     "effect": "Lorsque \"Roboute Guilliman\" est invoqué en sacrifiant des cartes \"Escouade\", vous pouvez activer cette carte (une fois par tour). Si vous le faites, les cartes sacrifiées lors de son invocation restent sur votre terrain au lieu d’être envoyées au cimetière.",
     "image": "images/ultramarines/tacticien_de_genie.png"
   },
+
   {
     "id": "difformité_de_tzeentch",
     "name": "Difformité de tzeentch",
@@ -588,7 +589,7 @@
     "ranged": 4,
     "melee": 4,
     "hp": 6,
-    "effect": "Vous pouvez lancer des sorts de rang runique 1, 2 ou 3. Lorsque cette carte est invoquée, révéler les trois premières cartes de votre deck. Piochez chaque cartes magies révélées et mélanger dans votre deck le reste. Lorsque cette carte est détruite, mélanger depuis votre cimetière deux cartes magies dans votre deck. .Vous pouvez utiliser deux magies par tour",
+    "effect": "Vous pouvez lancer des sorts de rang runique 1, 2 ou 3. Lorsque cette carte est invoquée, révéler les trois premières cartes de votre deck. Piochez chaque cartes magies révélées et mélanger dans votre deck le reste. Lorsque cette carte est détruite, mélanger depuis votre cimetière deux cartes magies dans votre deck. .Vous pouvez utiliser deux magies par tour.",
     "image": "images/tzeentch/kairos.png"
   },
   {
@@ -596,7 +597,7 @@
     "name": "Roi corbeau",
     "faction": "Tzeentch",
     "type": "Magie",
-    "keywords": ["Permet de piocher", "Mage rang 1"],
+    "keywords": ["Permet de piocher", "Magie rang 1"],
     "effect": "Piochez une carte “héros” depuis votre deck",
     "image": "images/tzeentch/roi_corbeau.png"
   },
@@ -605,7 +606,7 @@
     "name": "Protection magique",
     "faction": "Tzeentch",
     "type": "Magie",
-    "keywords": ["Donne armure", "Mage rang 1"],
+    "keywords": ["Donne armure", "Magie rang 1"],
     "effect": "Ciblez une de vos cartes sur votre terrain, elle gagne 3 d’armures pendant 1 tour",
     "image": "images/tzeentch/protection_magique.png"
   },
@@ -614,7 +615,7 @@
     "name": "Porte du savoir",
     "faction": "Tzeentch",
     "type": "Magie",
-    "keywords": ["Défausse l'adversaire", "Mage rang 1"],
+    "keywords": ["Défausse l'adversaire", "Magie rang 1"],
     "effect": "Révélez la main de votre adversaire et replacer une de ses cartes dans son deck",
     "image": "images/tzeentch/porte_savoir.png"
   },
@@ -623,7 +624,7 @@
     "name": "Tempête arcanique",
     "faction": "Tzeentch",
     "type": "Magie",
-    "keywords": ["Inflige des dégâts", "Mage rang 2"],
+    "keywords": ["Inflige des dégâts", "Magie rang 2"],
     "effect": "Ciblez deux cartes adverses, infligez 3 de dégâts à chacune",
     "image": "images/tzeentch/tempête_arcanique.png"
   },
@@ -632,7 +633,7 @@
     "name": "Architecte du temps",
     "faction": "Tzeentch",
     "type": "Magie",
-    "keywords": ["Clear une ligne", "Mage rang 3"],
+    "keywords": ["Clear une ligne", "Magie rang 3"],
     "effect": "Sélectionnez une ligne de votre adversaire, détruisez toute les cartes dessus",
     "image": "images/tzeentch/architecte.png"
   },
@@ -641,7 +642,7 @@
     "name": "Paradoxe du corbeau",
     "faction": "Tzeentch",
     "type": "Magie",
-    "keywords": ["Inverse les dégâts", "Mage rang 2"],
+    "keywords": ["Inverse les dégâts", "Magie rang 2"],
     "effect": "Pendant 1 tour, les dégâts que vous ou vos cartes subissent sont redirigés vers les cartes de votre adversaire et vice-versa",
     "image": "images/tzeentch/paradoxe.png"
   },
@@ -650,7 +651,7 @@
     "name": "Feu bleue de tzeentch",
     "faction": "Tzeentch",
     "type": "Magie",
-    "keywords": ["Terrain", "Mage rang 3", "Inflige des dégâts", "Reduit l'attauque", "Empeche d'attquer"],
+    "keywords": ["Terrain", "Magie rang 3", "Inflige des dégâts", "Reduit l'attauque", "Empeche d'attaquer"],
     "effect": "Placez cette carte sur une ligne adverse de votre choix. Chaque fois que vous activez une carte Magie, ajoutez 1 compteur sur cette carte. Vous pouvez ensuite dépenser les compteurs de la manière suivante : 1 compteur : Infligez 1 dégât à chaque carte sur la ligne ciblée. 2 compteurs : Réduisez l'ATK de chaque carte de la ligne ciblée de 2 (minimum 0). 3 compteurs : Empêchez les cartes de la ligne ciblée de déclarer une attaque et d'activer un effet lors du prochain tour de votre adversaire.",
     "image": "images/tzeentch/feu_bleue.png"
   },
@@ -659,8 +660,167 @@
     "name": "Yeux du destin",
     "faction": "Tzeentch",
     "type": "Magie",
-    "keywords": ["Mage rang 1", "Permet de piocher"],
+    "keywords": ["Magie rang 1", "Permet de piocher"],
     "effect": "Choisissez un chiffre entre 1 et 3. Révélez un nombre de carte équivalent au chiffe choisi depuis le dessus de votre deck. Piochez les cartes “magie” et placez le reste dans votre cimetière.",
     "image": "images/tzeentch/yeux_destin.png"
+  },
+  {
+    "id": "forteresse",
+    "name": "Forteresse infinie",
+    "faction": "Tzeentch",
+    "type": "Capacité",
+    "limit": 2,
+    "keywords": ["Empeche d'attaquer"],
+    "effect": "Activer cette carte sur une ligne adverse. pendant 1 tour, les cartes sur cette ligne ne peuvent pas déclarer d’attaques.",
+    "image": "images/tzeentch/forteresse.png"
+  },
+  {
+    "id": "dédale",
+    "name": "Dédale sans fin",
+    "faction": "Tzeentch",
+    "type": "Capacité",
+    "keywords": ["Inflige des dégâts"],
+    "limit": 2,
+    "effect": "Si votre adversaire déclare une attaque directe alors que vous ne contrôlez aucune carte sur le terrain, redirigez les dégâts vers la carte attaquant : elle subit les dégâts à votre place.",
+    "image": "images/tzeentch/dédale.png"
+  },
+  {
+    "id": "âmes_damnées",
+    "name": "âmes damnées",
+    "faction": "Tzeentch",
+    "type": "Capacité",
+    "keywords": ["Replace depuis le cimetière", "Permet de piocher"],
+    "effect": "Sélectionnez depuis votre cimetière deux cartes “escouades” ou/et “Elite”, renvoyer ses cartes dans votre deck et piochez une carte",
+    "image": "images/tzeentch/âmes_damnées.png"
+  },
+  {
+    "id": "flot_dedale",
+    "name": "Flot du dédale",
+    "faction": "Tzeentch",
+    "type": "Capacité",
+    "keywords": ["Permet de piocher"],
+    "effect": "Une fois par tour, piochez une carte “élite” ou “héros” depuis votre deck.",
+    "image": "images/tzeentch/flot_dedale.png"
+  },
+  {
+    "id": "ephilim",
+    "name": "Ephilim",
+    "faction": "Tzeentch",
+    "type": "Héros légendaire",
+    "keywords": ["Mage rang 2", "Effet à l'invocation"],
+    "cost": 1,
+    "range": 2,
+    "ranged": 2,
+    "melee": 1,
+    "hp": 2,
+    "effect": "Vous pouvez lancer des sorts de rang runique 2. Lorsque cette carte est invoquée, invoquez sur le terrain les trois cartes suivante: “Tzaangor abominable”, “spawnmaw” et “kindlefinger”. Vous pouvez utiliser une magie par tour",
+    "image": "images/tzeentch/ephilim.png"
+  },
+  {
+    "id": "prédicateur",
+    "name": "Prédicateur",
+    "faction": "Tzeentch",
+    "type": "Héros",
+    "keywords": ["Revele les cartes du deck"],
+    "cost": 0,
+    "range": 0,
+    "ranged": 0,
+    "melee": 1,
+    "hp": 3,
+    "effect": "Lorsque cette carte est invoquée, ciblé votre deck ou celui de l’adversaire. Révélez les trois première cartes du deck et replacez les dans l’ordre que vous souhaité.",
+    "image": "images/tzeentch/prédicateur.png"
+  },
+  {
+    "id": "sorcier_maitre_dedale",
+    "name": "Sorcier du maitre des dédales",
+    "faction": "Tzeentch",
+    "type": "Elite",
+    "keywords": ["Mage rang 1", "Replace depuis le cimetière"],
+    "cost": 0,
+    "range": 2,
+    "ranged": 1,
+    "melee": 1,
+    "hp": 1,
+    "effect": "Vous pouvez lancer des sorts de rang runique 1. Lorsque cette carte est invoquée, piochez une magie rang runique 1 ou 2 depuis votre cimetière. Vous pouvez utiliser une magie par tour",
+    "image": "images/tzeentch/sorcier_maitre_dedale.png"
+  },
+  {
+    "id": "cavalier_crépusculaire",
+    "name": "Cavalier crépusculaire",
+    "faction": "Tzeentch",
+    "type": "Héros légendaire",
+    "keywords": ["Copie un effet"],
+    "cost": 1,
+    "range": 0,
+    "ranged": 0,
+    "melee": 3,
+    "hp": 4,
+    "effect": "Lorsque cette carte est invoquée via le sacrifice d’une carte pouvant lancer de sorts, cette carte copie les effets de la carte sacrifiée.",
+    "image": "images/tzeentch/cavalier_crépusculaire.png"
+  },
+  {
+    "id": "duc_du_changement",
+    "name": "Duc du changement",
+    "faction": "Tzeentch",
+    "type": "Héros légendaire",
+    "keywords": ["Mage rang 1, 2 ou 3", "Replace depuis le cimetière", "Negate"],
+    "cost": 2,
+    "range": 1,
+    "ranged": 5,
+    "melee": 2,
+    "hp": 5,
+    "effect": "Vous pouvez lancer des sorts de rang runique 1, 2 ou 3. Lorsque cette carte est invoquée, piochez une carte magie de rang runique 3 depuis votre cimetière. Une fois par tour, tant que cette carte est sur votre terrain, retirez du jeu une carte magie depuis votre cimetière pour annuler l’effet d’une carte adverse ciblant une de vos lignes ou une de vos cartes (excepté celle-ci)",
+    "image": "images/tzeentch/duc_du_changement.png"
+  },
+  {
+    "id": "changelin_illusion",
+    "name": "Le changelin, maitre des illusions",
+    "faction": "Tzeentch",
+    "type": "Héros",
+    "keywords": ["Mage rang 1, 2 ou 3", "Copie un effet"],
+    "cost": 1,
+    "range": 2,
+    "ranged": 3,
+    "melee": 1,
+    "hp": 4,
+    "effect": "Lors de l’invocation de cette carte, retirez du jeu une carte à 2 sacrifices depuis votre main, votre deck, votre cimetière ou celui de votre adversaire. Cette carte copie alors les effets de la carte ainsi retirée.",
+    "image": "images/tzeentch/changelin_illusion.png"
+  },
+  {
+    "id": "invasion",
+    "name": "Invasion du roi corbeau",
+    "faction": "Tzeentch",
+    "type": "Capacité",
+    "keywords": ["Permet d'invoquer gratuitement"],
+    "limit": 2,
+    "effect": "Une fois par tour, retirez du jeu 3 cartes “Magie” depuis votre cimetière, invoquez depuis votre main une carte nécessitant 2 sacrifices. Cette invocation compte comme votre invocation du tour.",
+    "image": "images/tzeentch/invasion.png"
+  },
+  {
+    "id": "mage_du_dedale",
+    "name": "Mage du dédale",
+    "faction": "Tzeentch",
+    "type": "Magie",
+    "keywords": ["Magie rang 1", "Inflige des dégâts"],
+    "effect": "Sélectionnez une unité adverse sur son terrain et infligez-lui 3 dégâts.",
+    "image": "images/tzeentch/mage_du_dedale.png"
+  },
+  {
+    "id": "invocation_roi_corbeau",
+    "name": "L’invocation du roi corbeau",
+    "faction": "Tzeentch",
+    "type": "Magie",
+    "keywords": ["Magie rang 2", "invoque des jetons", "Permet de piocher"],
+    "effect": "Une fois par tour, remplissez toute une ligne sélectionnée avec des jetons “horreur bleue” jusqu'à la fin de votre tour. Si tous les jetons sont détruit au combat, piochez une carte.",
+    "image": "images/tzeentch/invocation_roi_corbeau.png"
+  },
+  {
+    "id": "messager_horifique",
+    "name": "Messager horifique",
+    "faction": "Tzeentch",
+    "type": "Capacité",
+    "keywords": ["Permet de piocher"],
+    "effect": "Une fois par tour, révélez dans votre main une carte “Horreur Rose” ou “Fluxmaster”. Vous piochez alors l’autre carte depuis votre deck (si vous révélez “Horreur Rose”, piochez “Fluxmaster” ; si vous révélez Fluxmaster, piochez Horreur Rose).",
+    "image": "images/tzeentch/messager_horifique.png"
   }
 ]
