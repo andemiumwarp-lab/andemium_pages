@@ -492,5 +492,47 @@
     "hp": 1,
     "effect": "Vous pouvez lancer des sorts de rang runique 1. Lorsque cette carte est invoquée, piochez une magie rang runique 1 depuis votre deck. Vous pouvez utiliser une magie par tour",
     "image": "images/tzeentch/mage_tzaangor.png"
+  },
+  {
+    "id": "changelin",
+    "name": "Changelin",
+    "faction": "Tzeentch",
+    "type": "Héros légendaire",
+    "keywords": ["Mage rang 2", "Permet de piocher"],
+    "cost": 0,
+    "range": 2,
+    "ranged": 2,
+    "melee": 1,
+    "hp": 2,
+    "effect": "Vous pouvez lancer des sorts de rang runique 2, Lorsque cette carte est invoquée, piochez une magie rang runique 2 depuis votre deck. , Vous pouvez utiliser une magie par tour",
+    "image": "images/tzeentch/changelin.png"
+  },
+  {
+    "id": "fluxmaster",
+    "name": "Fluxmaster",
+    "faction": "Tzeentch",
+    "type": "Elite",
+    "keywords": ["Mage rang 1", "S'invoque gratuitement"],
+    "cost": 0,
+    "range": 2,
+    "ranged": 2,
+    "melee": 1,
+    "hp": 2,
+    "effect": "Vous pouvez lancer des sorts de rang runique 1. Lorsqu’une carte horreur rose sur votre terrain est détruite (hors sacrifice), vous pouvez invoquer cette carte depuis votre main sur la même ligne. Vous pouvez utiliser une magie par tour",
+    "image": "images/tzeentch/fluxmaster.png"
+  },
+  {
+    "id": "les_scribes_bleus",
+    "name": "LES SCRIBES BLEUS",
+    "faction": "Tzeentch",
+    "type": "Héros",
+    "keywords": ["Mage rang 1, 2 ou 3", "Hasard"],
+    "cost": 1,
+    "range": 2,
+    "ranged": 2,
+    "melee": 1,
+    "hp": 3,
+    "effect": "Vous pouvez lancer des sorts de rang runique 1. Lorsqu’une carte horreur rose sur votre terrain est détruite (hors sacrifice), vous pouvez invoquer cette carte depuis votre main sur la même ligne. Vous pouvez utiliser une magie par tour",
+    "image": "images/tzeentch/les_scribes_bleus.png"
   }
 ]
