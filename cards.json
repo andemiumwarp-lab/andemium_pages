@@ -596,8 +596,71 @@
     "name": "Roi corbeau",
     "faction": "Tzeentch",
     "type": "Magie",
-    "keywords": ["Permet de piocher"],
+    "keywords": ["Permet de piocher", "Mage rang 1"],
     "effect": "Piochez une carte “héros” depuis votre deck",
     "image": "images/tzeentch/roi_corbeau.png"
+  },
+  {
+    "id": "protection_magique",
+    "name": "Protection magique",
+    "faction": "Tzeentch",
+    "type": "Magie",
+    "keywords": ["Donne armure", "Mage rang 1"],
+    "effect": "Ciblez une de vos cartes sur votre terrain, elle gagne 3 d’armures pendant 1 tour",
+    "image": "images/tzeentch/protection_magique.png"
+  },
+  {
+    "id": "porte_savoir",
+    "name": "Porte du savoir",
+    "faction": "Tzeentch",
+    "type": "Magie",
+    "keywords": ["Défausse l'adversaire", "Mage rang 1"],
+    "effect": "Révélez la main de votre adversaire et replacer une de ses cartes dans son deck",
+    "image": "images/tzeentch/porte_savoir.png"
+  },
+  {
+    "id": "tempête_arcanique",
+    "name": "Tempête arcanique",
+    "faction": "Tzeentch",
+    "type": "Magie",
+    "keywords": ["Inflige des dégâts", "Mage rang 2"],
+    "effect": "Ciblez deux cartes adverses, infligez 3 de dégâts à chacune",
+    "image": "images/tzeentch/tempête_arcanique.png"
+  },
+  {
+    "id": "architecte",
+    "name": "Architecte du temps",
+    "faction": "Tzeentch",
+    "type": "Magie",
+    "keywords": ["Clear une ligne", "Mage rang 3"],
+    "effect": "Sélectionnez une ligne de votre adversaire, détruisez toute les cartes dessus",
+    "image": "images/tzeentch/architecte.png"
+  },
+  {
+    "id": "paradoxe",
+    "name": "Paradoxe du corbeau",
+    "faction": "Tzeentch",
+    "type": "Magie",
+    "keywords": ["Inverse les dégâts", "Mage rang 2"],
+    "effect": "Pendant 1 tour, les dégâts que vous ou vos cartes subissent sont redirigés vers les cartes de votre adversaire et vice-versa",
+    "image": "images/tzeentch/paradoxe.png"
+  },
+  {
+    "id": "feu_bleue",
+    "name": "Feu bleue de tzeentch",
+    "faction": "Tzeentch",
+    "type": "Magie",
+    "keywords": ["Terrain", "Mage rang 3", "Inflige des dégâts", "Reduit l'attauque", "Empeche d'attquer"],
+    "effect": "Placez cette carte sur une ligne adverse de votre choix. Chaque fois que vous activez une carte Magie, ajoutez 1 compteur sur cette carte. Vous pouvez ensuite dépenser les compteurs de la manière suivante : 1 compteur : Infligez 1 dégât à chaque carte sur la ligne ciblée. 2 compteurs : Réduisez l'ATK de chaque carte de la ligne ciblée de 2 (minimum 0). 3 compteurs : Empêchez les cartes de la ligne ciblée de déclarer une attaque et d'activer un effet lors du prochain tour de votre adversaire.",
+    "image": "images/tzeentch/feu_bleue.png"
+  },
+  {
+    "id": "yeux_destin",
+    "name": "Yeux du destin",
+    "faction": "Tzeentch",
+    "type": "Magie",
+    "keywords": ["Mage rang 1", "Permet de piocher"],
+    "effect": "Choisissez un chiffre entre 1 et 3. Révélez un nombre de carte équivalent au chiffe choisi depuis le dessus de votre deck. Piochez les cartes “magie” et placez le reste dans votre cimetière.",
+    "image": "images/tzeentch/yeux_destin.png"
   }
 ]
