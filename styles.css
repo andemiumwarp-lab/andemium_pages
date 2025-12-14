@@ -11,6 +11,7 @@
 body {
     background: #0f1115;
     color: #e5e7eb;
+    height: 100vh;
 }
 
 /* ============================================================
@@ -18,8 +19,8 @@ body {
 ============================================================ */
 .topbar {
     display: flex;
-    align-items: center;
     justify-content: space-between;
+    align-items: center;
     padding: 12px 20px;
     background: #111827;
     border-bottom: 1px solid #1f2933;
@@ -49,7 +50,7 @@ body {
 }
 
 /* ============================================================
-   LAYOUT
+   LAYOUT PRINCIPAL
 ============================================================ */
 main {
     display: flex;
@@ -185,25 +186,19 @@ main {
 }
 
 /* ============================================================
-   IMAGE (FIX DU PROBLÈME DE CENTRAGE)
+   IMAGE DE CARTE (CENTRÉE / FIX PROBLÈME)
 ============================================================ */
 .card-image {
     width: 100%;
     height: 230px;
-    background-size: cover;              /* 🔥 */
-    background-position: center center;  /* 🔥 */
     background-repeat: no-repeat;
-    border-radius: 12px 12px 0 0;
+    background-size: cover;
+    background-position: center 30%;
+    overflow: hidden;
     position: relative;
 }
 
-/* Optionnel : focus légèrement plus haut (héros) */
-/*
-.card-image {
-    background-position: center 35%;
-}
-*/
-
+/* Badge faction */
 .card-faction-tag {
     position: absolute;
     top: 6px;
@@ -273,7 +268,7 @@ main {
 }
 
 /* ============================================================
-   FOOTER
+   FOOTER CARTE
 ============================================================ */
 .card-footer {
     margin-top: 6px;
