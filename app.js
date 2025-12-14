@@ -1,22 +1,27 @@
 /* ============================================================
+   CONSTANTES
+============================================================ */
+const DECK_MIN_SIZE = 30;
+const DECK_MAX_SIZE = 40;
+
+/* ============================================================
    VARIABLES GLOBALES
 ============================================================ */
 let allCards = [];
 let filteredCards = [];
-let deck = {};            // cardId: count
-let deckFaction = null;   // faction unique du deck
+let deck = {};          // { cardId: count }
+let deckFaction = null;
 
 /* ============================================================
    RÉFÉRENCES DOM
 ============================================================ */
 const cardsGrid = document.getElementById("cardsGrid");
 const deckList = document.getElementById("deckList");
+const deckCardGrid = document.getElementById("deckCardGrid");
+
 const deckCountSpan = document.getElementById("deckCount");
 const cardsCountSpan = document.getElementById("cardsCount");
 const cardsTitle = document.getElementById("cardsTitle");
-
-const DECK_MIN_SIZE = 30;
-const DECK_MAX_SIZE = 40;
 
 const filterFaction = document.getElementById("filterFaction");
 const filterType = document.getElementById("filterType");
@@ -25,7 +30,6 @@ const filterSearch = document.getElementById("filterSearch");
 const btnResetFilters = document.getElementById("btnResetFilters");
 
 const factionPagesContainer = document.getElementById("factionPages");
-const deckCardGrid = document.getElementById("deckCardGrid");
 
 const btnClearDeck = document.getElementById("btnClearDeck");
 const btnExportDeck = document.getElementById("btnExportDeck");
@@ -38,31 +42,21 @@ document.addEventListener("DOMContentLoaded", () => {
     loadDeckFromStorage();
     loadCards();
 
-    // Filtres
     [filterFaction, filterType, filterCost].forEach(el =>
         el.addEventListener("change", applyFilters)
     );
     filterSearch.addEventListener("input", applyFilters);
 
-    // Reset filtres
     if (btnResetFilters) {
         btnResetFilters.addEventListener("click", resetFilters);
     }
 
-    // Deck actions
     btnClearDeck.addEventListener("click", clearDeck);
     btnExportDeck.addEventListener("click", exportDeck);
     importDeckFile.addEventListener("change", importDeckFromFile);
 
     setupTabs();
 });
-
-
-
-function getDeckSize() {
-    return Object.values(deck).reduce((sum, count) => sum + count, 0);
-}
-
 
 /* ============================================================
    CHARGEMENT DES CARTES
@@ -77,9 +71,10 @@ async function loadCards() {
 }
 
 /* ============================================================
-   INIT FILTRES DYNAMIQUES
+   FILTRES DYNAMIQUES
 ============================================================ */
 function initFiltersFromCards() {
+    // Factions
     const factions = [...new Set(allCards.map(c => c.faction))].sort();
     filterFaction.innerHTML = `<option value="">Toutes</option>`;
     factions.forEach(f => {
@@ -89,6 +84,7 @@ function initFiltersFromCards() {
         filterFaction.appendChild(opt);
     });
 
+    // Types
     const types = [...new Set(allCards.map(c => c.type))].sort();
     filterType.innerHTML = `<option value="">Tous</option>`;
     types.forEach(t => {
@@ -98,6 +94,7 @@ function initFiltersFromCards() {
         filterType.appendChild(opt);
     });
 
+    // Pages par faction
     factionPagesContainer.innerHTML = "";
     factions.forEach(f => {
         const btn = document.createElement("button");
@@ -107,11 +104,6 @@ function initFiltersFromCards() {
             filterType.value = "";
             filterCost.value = "";
             filterSearch.value = "";
-
-            factionPagesContainer.querySelectorAll("button")
-                .forEach(b => b.classList.remove("active"));
-            btn.classList.add("active");
-
             applyFilters();
         });
         factionPagesContainer.appendChild(btn);
@@ -119,7 +111,7 @@ function initFiltersFromCards() {
 }
 
 /* ============================================================
-   FILTRAGE PRINCIPAL
+   APPLICATION DES FILTRES
 ============================================================ */
 function applyFilters() {
     const faction = filterFaction.value;
@@ -131,7 +123,6 @@ function applyFilters() {
         if (faction && card.faction !== faction) return false;
         if (type && card.type !== type) return false;
 
-        // Filtre coût
         if (costFilter !== "") {
             const c = Number(card.cost);
             if (costFilter === "other") {
@@ -141,7 +132,6 @@ function applyFilters() {
             }
         }
 
-        // Recherche texte
         if (search) {
             const haystack = [
                 card.name,
@@ -150,7 +140,6 @@ function applyFilters() {
                 card.type,
                 card.faction
             ].join(" ").toLowerCase();
-
             if (!haystack.includes(search)) return false;
         }
 
@@ -164,131 +153,103 @@ function applyFilters() {
 }
 
 /* ============================================================
-   BOUTON RÉINITIALISER LES FILTRES
+   RESET FILTRES
 ============================================================ */
 function resetFilters() {
     filterFaction.value = "";
     filterType.value = "";
     filterCost.value = "";
     filterSearch.value = "";
-
-    factionPagesContainer.querySelectorAll("button")
-        .forEach(btn => btn.classList.remove("active"));
-
-    cardsTitle.textContent = "Toutes les cartes";
-
     applyFilters();
 }
 
 /* ============================================================
    RENDU DES CARTES
 ============================================================ */
-function renderCards(list, container, showAdd = false) {
+function renderCards(list, container, showAdd) {
     container.innerHTML = "";
 
     if (list.length === 0) {
-        container.innerHTML = `<p style="color:#aaa;">Aucune carte trouvée.</p>`;
+        container.innerHTML = "<p>Aucune carte</p>";
         return;
     }
 
     list.forEach(card => {
-        const cardDiv = document.createElement("div");
-        cardDiv.className = "card";
+        const div = document.createElement("div");
+        div.className = "card";
 
-        // IMAGE
         const img = document.createElement("div");
         img.className = "card-image";
-        img.style.backgroundImage = card.image ? `url('${card.image}')` : "none";
+        if (card.image) img.style.backgroundImage = `url('${card.image}')`;
 
-        const tag = document.createElement("div");
-        tag.className = "card-faction-tag";
-        tag.textContent = card.faction;
-        img.appendChild(tag);
-
-        // BODY
         const body = document.createElement("div");
         body.className = "card-body";
 
         body.innerHTML = `
             <div class="card-title-row">
                 <div class="card-title">${card.name}</div>
-                <div class="card-cost">${card.cost ?? ""}</div>
+                <div class="card-cost">${card.cost}</div>
             </div>
-
             <div class="card-type">${card.type}</div>
-            <div class="card-keywords">${(card.keywords || []).join(" • ")}</div>
             <div class="card-effect">${card.effect || ""}</div>
         `;
 
-        // STATS
-        const stats = document.createElement("div");
-        stats.className = "card-stats";
-        stats.innerHTML = `
-            <div>Portée : ${card.range ?? "-"}</div>
-            <div>Distance : ${card.ranged ?? "-"}</div>
-            <div>Mêlée : ${card.melee ?? "-"}</div>
-            <div>PV : ${card.hp ?? "-"}</div>
-        `;
-        body.appendChild(stats);
-
-        // FOOTER
         const footer = document.createElement("div");
         footer.className = "card-footer";
-
         footer.innerHTML = `<div class="card-limit">Limite : ${getCardLimit(card)}</div>`;
 
         if (showAdd) {
             const btn = document.createElement("button");
             btn.className = "add-to-deck";
             btn.textContent = "Ajouter";
-            btn.addEventListener("click", () => addToDeck(card.id));
+            btn.onclick = () => addToDeck(card.id);
             footer.appendChild(btn);
         }
 
         body.appendChild(footer);
-
-        cardDiv.appendChild(img);
-        cardDiv.appendChild(body);
-
-        container.appendChild(cardDiv);
+        div.appendChild(img);
+        div.appendChild(body);
+        container.appendChild(div);
     });
 }
 
 /* ============================================================
-   LIMITES DE CARTES
+   RÈGLES DE CARTES
 ============================================================ */
 function getCardLimit(card) {
-    if (card.type && card.type.toLowerCase().includes("héros légendaire")) return 1;
+    if (card.type?.toLowerCase().includes("héros légendaire")) return 1;
     if (card.limit !== undefined) return card.limit;
     return 3;
 }
 
 /* ============================================================
-   AJOUT / SUPPRESSION DANS LE DECK
+   DECK LOGIQUE
 ============================================================ */
+function getDeckSize() {
+    return Object.values(deck).reduce((a, b) => a + b, 0);
+}
+
 function addToDeck(cardId) {
     const card = allCards.find(c => c.id === cardId);
     if (!card) return;
 
-    // Limite globale du deck
     if (getDeckSize() >= DECK_MAX_SIZE) {
-        alert(`Le deck ne peut pas dépasser ${DECK_MAX_SIZE} cartes.`);
+        alert(`Maximum ${DECK_MAX_SIZE} cartes.`);
         return;
     }
-    // MONO FACTION
+
     if (deckFaction === null) {
         deckFaction = card.faction;
     } else if (deckFaction !== card.faction) {
-        alert(`Votre deck est ${deckFaction}. Impossible d'ajouter une carte ${card.faction}.`);
+        alert(`Deck ${deckFaction} uniquement.`);
         return;
     }
 
-    // Limite copies
-    const max = getCardLimit(card);
-    if (!deck[cardId]) deck[cardId] = 0;
+    const limit = getCardLimit(card);
+    deck[cardId] = deck[cardId] || 0;
 
-    if (deck[cardId] >= max) {
-        alert(`Limite atteinte (${max}) pour "${card.name}".`);
+    if (deck[cardId] >= limit) {
+        alert("Limite atteinte pour cette carte.");
         return;
     }
 
@@ -299,21 +260,18 @@ function addToDeck(cardId) {
 
 function removeFromDeck(cardId) {
     if (!deck[cardId]) return;
-
     deck[cardId]--;
     if (deck[cardId] <= 0) delete deck[cardId];
-
     saveDeckToStorage();
     renderDeck();
 }
 
 function clearDeck() {
-    if (confirm("Vider totalement le deck ?")) {
-        deck = {};
-        deckFaction = null;
-        saveDeckToStorage();
-        renderDeck();
-    }
+    if (!confirm("Vider le deck ?")) return;
+    deck = {};
+    deckFaction = null;
+    saveDeckToStorage();
+    renderDeck();
 }
 
 /* ============================================================
@@ -326,78 +284,39 @@ function renderDeck() {
     let total = 0;
 
     for (const [id, count] of Object.entries(deck)) {
-        
-    const status = document.getElementById("deckStatus");
-    if (total < DECK_MIN_SIZE) {
-        status.textContent = `Deck incomplet (${total}/${DECK_MIN_SIZE})`;
-        status.className = "deck-status invalid";
-    } else if (total <= DECK_MAX_SIZE) {
-        status.textContent = `Deck valide (${total} cartes)`;
-        status.className = "deck-status valid";
+        const card = allCards.find(c => c.id === id);
+        if (!card) continue;
+
+        total += count;
+
+        const li = document.createElement("li");
+        li.innerHTML = `
+            <span class="deck-card-name">${card.name}</span>
+            <span class="deck-count-badge">x${count}/${getCardLimit(card)}</span>
+        `;
+
+        const btn = document.createElement("button");
+        btn.className = "deck-remove-btn";
+        btn.textContent = "-1";
+        btn.onclick = () => removeFromDeck(id);
+
+        li.appendChild(btn);
+        deckList.appendChild(li);
     }
 
-    const card = allCards.find(c => c.id === id);
-    if (!card) continue;
-
-    total += count;
-
-    const total = getDeckSize();
     deckCountSpan.textContent = total;
 
-    // Indicateur de validité
     if (total < DECK_MIN_SIZE) {
-        deckCountSpan.style.color = "#facc15"; // jaune
-        deckCountSpan.title = `Minimum ${DECK_MIN_SIZE} cartes requis`;
+        deckCountSpan.style.color = "#facc15";
     } else if (total > DECK_MAX_SIZE) {
-        deckCountSpan.style.color = "#dc2626"; // rouge
-        deckCountSpan.title = `Maximum ${DECK_MAX_SIZE} cartes autorisé`;
+        deckCountSpan.style.color = "#dc2626";
     } else {
-        deckCountSpan.style.color = "#22c55e"; // vert
-        deckCountSpan.title = "Deck valide";
+        deckCountSpan.style.color = "#22c55e";
     }
-    const li = document.createElement("li");
-    li.innerHTML = `
-        <span class="deck-card-name">${card.name}</span>
-        <span class="deck-count-badge">x${count}/${getCardLimit(card)}</span>
-    `;
-
-    const btn = document.createElement("button");
-    btn.className = "deck-remove-btn";
-    btn.textContent = "-1";
-    btn.addEventListener("click", () => removeFromDeck(id));
-
-    li.appendChild(btn);
-    deckList.appendChild(li);
-
-    for (let i = 0; i < count; i++) {
-        deckCardGrid.appendChild(createDeckCard(card));
-    }
-    }
-
-    deckCountSpan.textContent = total;
-}
-
-function createDeckCard(card) {
-    const div = document.createElement("div");
-    div.className = "card";
-    div.innerHTML = `
-        <div class="card-image" style="background-image:url('${card.image}')"></div>
-        <div class="card-body">
-            <div class="card-title">${card.name}</div>
-            <div class="card-type">${card.type}</div>
-            <div class="card-stats">
-                <div>Portée : ${card.range ?? "-"}</div>
-                <div>Distance : ${card.ranged ?? "-"}</div>
-                <div>Mêlée : ${card.melee ?? "-"}</div>
-                <div>PV : ${card.hp ?? "-"}</div>
-            </div>
-        </div>
-    `;
-    return div;
 }
 
 /* ============================================================
-   SAUVEGARDE LOCALE
+   LOCAL STORAGE
 ============================================================ */
 function saveDeckToStorage() {
     localStorage.setItem("aow_deck", JSON.stringify(deck));
@@ -405,66 +324,48 @@ function saveDeckToStorage() {
 }
 
 function loadDeckFromStorage() {
-    const raw = localStorage.getItem("aow_deck");
-    if (raw) deck = JSON.parse(raw);
+    const d = localStorage.getItem("aow_deck");
+    deck = d ? JSON.parse(d) : {};
 
-    const savedFaction = localStorage.getItem("aow_deck_faction");
-    deckFaction = savedFaction ? savedFaction : null;
+    const f = localStorage.getItem("aow_deck_faction");
+    deckFaction = f || null;
 }
 
 /* ============================================================
-   EXPORT / IMPORT DECK
+   EXPORT / IMPORT
 ============================================================ */
 function exportDeck() {
-    const blob = new Blob([JSON.stringify(deck, null, 2)], {type: "application/json"});
-    const url = URL.createObjectURL(blob);
-
+    const blob = new Blob([JSON.stringify(deck, null, 2)], { type: "application/json" });
     const a = document.createElement("a");
-    a.href = url;
+    a.href = URL.createObjectURL(blob);
     a.download = "deck.json";
     a.click();
-
-    URL.revokeObjectURL(url);
 }
 
-function importDeckFromFile(event) {
-    const file = event.target.files[0];
+function importDeckFromFile(e) {
+    const file = e.target.files[0];
     if (!file) return;
 
     const reader = new FileReader();
-    reader.onload = e => {
-        try {
-            deck = JSON.parse(e.target.result);
-            saveDeckToStorage();
-            renderDeck();
-        } catch {
-            alert("Erreur : fichier deck invalide.");
-        }
+    reader.onload = ev => {
+        deck = JSON.parse(ev.target.result);
+        saveDeckToStorage();
+        renderDeck();
     };
     reader.readAsText(file);
 }
 
 /* ============================================================
-   NAVIGATION ENTRE ONGLET CARTES / DECK
+   TABS
 ============================================================ */
 function setupTabs() {
-    const buttons = document.querySelectorAll(".tab-button");
-    const tabs = {
-        cards: document.getElementById("tab-cards"),
-        deck: document.getElementById("tab-deck")
-    };
-
-    buttons.forEach(btn => {
-        btn.addEventListener("click", () => {
-            buttons.forEach(b => b.classList.remove("active"));
+    document.querySelectorAll(".tab-button").forEach(btn => {
+        btn.onclick = () => {
+            document.querySelectorAll(".tab-button").forEach(b => b.classList.remove("active"));
             btn.classList.add("active");
 
-            const tab = btn.dataset.tab;
-            Object.entries(tabs).forEach(([name, el]) => {
-                el.classList.toggle("active", name === tab);
-            });
-
-            if (tab === "deck") renderDeck();
-        });
+            document.querySelectorAll(".tab").forEach(t => t.classList.remove("active"));
+            document.getElementById(`tab-${btn.dataset.tab}`).classList.add("active");
+        };
     });
 }
