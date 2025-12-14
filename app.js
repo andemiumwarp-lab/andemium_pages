@@ -271,7 +271,7 @@ function addToDeck(cardId) {
     if (!card) return;
 
     // Limite globale du deck
-    if (currentSize >= DECK_MAX_SIZE) {
+    if (getDeckSize() >= DECK_MAX_SIZE) {
         alert(`Le deck ne peut pas dépasser ${DECK_MAX_SIZE} cartes.`);
         return;
     }
