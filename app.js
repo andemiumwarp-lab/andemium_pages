@@ -327,51 +327,51 @@ function renderDeck() {
 
     for (const [id, count] of Object.entries(deck)) {
         
-const status = document.getElementById("deckStatus");
-        if (total < DECK_MIN_SIZE) {
-            status.textContent = `Deck incomplet (${total}/${DECK_MIN_SIZE})`;
-            status.className = "deck-status invalid";
-        } else if (total <= DECK_MAX_SIZE) {
-            status.textContent = `Deck valide (${total} cartes)`;
-            status.className = "deck-status valid";
-        }
+    const status = document.getElementById("deckStatus");
+    if (total < DECK_MIN_SIZE) {
+        status.textContent = `Deck incomplet (${total}/${DECK_MIN_SIZE})`;
+        status.className = "deck-status invalid";
+    } else if (total <= DECK_MAX_SIZE) {
+        status.textContent = `Deck valide (${total} cartes)`;
+        status.className = "deck-status valid";
+    }
 
-        const card = allCards.find(c => c.id === id);
-        if (!card) continue;
+    const card = allCards.find(c => c.id === id);
+    if (!card) continue;
 
-        total += count;
+    total += count;
 
-        const total = getDeckSize();
-        deckCountSpan.textContent = total;
+    const total = getDeckSize();
+    deckCountSpan.textContent = total;
 
-        // Indicateur de validité
-        if (total < DECK_MIN_SIZE) {
-            deckCountSpan.style.color = "#facc15"; // jaune
-            deckCountSpan.title = `Minimum ${DECK_MIN_SIZE} cartes requis`;
-        } else if (total > DECK_MAX_SIZE) {
-            deckCountSpan.style.color = "#dc2626"; // rouge
-            deckCountSpan.title = `Maximum ${DECK_MAX_SIZE} cartes autorisé`;
-        } else {
-            deckCountSpan.style.color = "#22c55e"; // vert
-            deckCountSpan.title = "Deck valide";
-        }
-        const li = document.createElement("li");
-        li.innerHTML = `
-            <span class="deck-card-name">${card.name}</span>
-            <span class="deck-count-badge">x${count}/${getCardLimit(card)}</span>
-        `;
+    // Indicateur de validité
+    if (total < DECK_MIN_SIZE) {
+        deckCountSpan.style.color = "#facc15"; // jaune
+        deckCountSpan.title = `Minimum ${DECK_MIN_SIZE} cartes requis`;
+    } else if (total > DECK_MAX_SIZE) {
+        deckCountSpan.style.color = "#dc2626"; // rouge
+        deckCountSpan.title = `Maximum ${DECK_MAX_SIZE} cartes autorisé`;
+    } else {
+        deckCountSpan.style.color = "#22c55e"; // vert
+        deckCountSpan.title = "Deck valide";
+    }
+    const li = document.createElement("li");
+    li.innerHTML = `
+        <span class="deck-card-name">${card.name}</span>
+        <span class="deck-count-badge">x${count}/${getCardLimit(card)}</span>
+    `;
 
-        const btn = document.createElement("button");
-        btn.className = "deck-remove-btn";
-        btn.textContent = "-1";
-        btn.addEventListener("click", () => removeFromDeck(id));
+    const btn = document.createElement("button");
+    btn.className = "deck-remove-btn";
+    btn.textContent = "-1";
+    btn.addEventListener("click", () => removeFromDeck(id));
 
-        li.appendChild(btn);
-        deckList.appendChild(li);
+    li.appendChild(btn);
+    deckList.appendChild(li);
 
-        for (let i = 0; i < count; i++) {
-            deckCardGrid.appendChild(createDeckCard(card));
-        }
+    for (let i = 0; i < count; i++) {
+        deckCardGrid.appendChild(createDeckCard(card));
+    }
     }
 
     deckCountSpan.textContent = total;
