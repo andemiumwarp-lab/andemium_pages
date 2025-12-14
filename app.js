@@ -217,8 +217,12 @@ function renderCards(list, container, showAdd) {
    RÈGLES DE CARTES
 ============================================================ */
 function getCardLimit(card) {
-    if (card.type?.toLowerCase().includes("héros légendaire")) return 1;
-    if (card.limit !== undefined) return card.limit;
+    if (card.type && card.type.toLowerCase().includes("héros légendaire")) {
+        return 1;
+    }
+    if (card.limit !== undefined) {
+        return card.limit;
+    }
     return 3;
 }
 
