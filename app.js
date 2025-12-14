@@ -38,11 +38,12 @@ const importDeckFile = document.getElementById("importDeckFile");
 
 
 function getCardCost(card) {
-    if (getCardCost(card) !== undefined && getCardCost(card) !== null) {
-        return getCardCost(card);
+    if (card.cost !== undefined && card.cost !== null) {
+        return card.cost;
     }
     return 0;
 }
+
 
 /* ============================================================
    INITIALISATION
