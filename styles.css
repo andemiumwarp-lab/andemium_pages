@@ -350,6 +350,19 @@ main {
     color: white;
 }
 
+.deck-status {
+    font-size: 0.75rem;
+    margin-bottom: 8px;
+}
+.deck-status.invalid {
+    color: #facc15;
+}
+.deck-status.valid {
+    color: #22c55e;
+}
+
+
+
 /* ============================================================
    ACTIONS DECK
 ============================================================ */

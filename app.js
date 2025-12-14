@@ -15,6 +15,9 @@ const deckCountSpan = document.getElementById("deckCount");
 const cardsCountSpan = document.getElementById("cardsCount");
 const cardsTitle = document.getElementById("cardsTitle");
 
+const DECK_MIN_SIZE = 30;
+const DECK_MAX_SIZE = 40;
+
 const filterFaction = document.getElementById("filterFaction");
 const filterType = document.getElementById("filterType");
 const filterCost = document.getElementById("filterCost");
@@ -53,6 +56,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
     setupTabs();
 });
+
+
+
+function getDeckSize() {
+    return Object.values(deck).reduce((sum, count) => sum + count, 0);
+}
+
 
 /* ============================================================
    CHARGEMENT DES CARTES
@@ -260,6 +270,11 @@ function addToDeck(cardId) {
     const card = allCards.find(c => c.id === cardId);
     if (!card) return;
 
+    // Limite globale du deck
+    if (currentSize >= DECK_MAX_SIZE) {
+        alert(`Le deck ne peut pas dépasser ${DECK_MAX_SIZE} cartes.`);
+        return;
+    }
     // MONO FACTION
     if (deckFaction === null) {
         deckFaction = card.faction;
@@ -311,11 +326,35 @@ function renderDeck() {
     let total = 0;
 
     for (const [id, count] of Object.entries(deck)) {
+        
+const status = document.getElementById("deckStatus");
+        if (total < DECK_MIN_SIZE) {
+            status.textContent = `Deck incomplet (${total}/${DECK_MIN_SIZE})`;
+            status.className = "deck-status invalid";
+        } else if (total <= DECK_MAX_SIZE) {
+            status.textContent = `Deck valide (${total} cartes)`;
+            status.className = "deck-status valid";
+        }
+
         const card = allCards.find(c => c.id === id);
         if (!card) continue;
 
         total += count;
 
+        const total = getDeckSize();
+        deckCountSpan.textContent = total;
+
+        // Indicateur de validité
+        if (total < DECK_MIN_SIZE) {
+            deckCountSpan.style.color = "#facc15"; // jaune
+            deckCountSpan.title = `Minimum ${DECK_MIN_SIZE} cartes requis`;
+        } else if (total > DECK_MAX_SIZE) {
+            deckCountSpan.style.color = "#dc2626"; // rouge
+            deckCountSpan.title = `Maximum ${DECK_MAX_SIZE} cartes autorisé`;
+        } else {
+            deckCountSpan.style.color = "#22c55e"; // vert
+            deckCountSpan.title = "Deck valide";
+        }
         const li = document.createElement("li");
         li.innerHTML = `
             <span class="deck-card-name">${card.name}</span>
