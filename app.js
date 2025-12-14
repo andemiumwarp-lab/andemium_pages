@@ -35,6 +35,15 @@ const btnClearDeck = document.getElementById("btnClearDeck");
 const btnExportDeck = document.getElementById("btnExportDeck");
 const importDeckFile = document.getElementById("importDeckFile");
 
+
+
+function getCardCost(card) {
+    if (getCardCost(card) !== undefined && getCardCost(card) !== null) {
+        return getCardCost(card);
+    }
+    return 0;
+}
+
 /* ============================================================
    INITIALISATION
 ============================================================ */
@@ -124,7 +133,7 @@ function applyFilters() {
         if (type && card.type !== type) return false;
 
         if (costFilter !== "") {
-            const c = Number(card.cost);
+            const c = Number(getCardCost(card));
             if (costFilter === "other") {
                 if (c === 0 || c === 1 || c === 2) return false;
             } else if (c !== Number(costFilter)) {
@@ -188,7 +197,7 @@ function renderCards(list, container, showAdd) {
         body.innerHTML = `
             <div class="card-title-row">
                 <div class="card-title">${card.name}</div>
-                <div class="card-cost">${card.cost}</div>
+                <div class="card-cost">${getCardCost(card)}</div>
             </div>
             <div class="card-type">${card.type}</div>
             <div class="card-effect">${card.effect || ""}</div>
